@@ -25,7 +25,8 @@ class Auth extends CI_Controller {
 						$this->session->set_flashdata('success', 'Anda berhasil login!');
 						redirect(base_url('dashboard'),'refresh');
 					} else {
-						echo "not match";
+						$this->session->set_flashdata('Gagal', 'Username atau password salah');
+						$this->load->view('login');
 					}
 				}
 			} else {

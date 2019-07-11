@@ -6,22 +6,26 @@
     <div class="sidebar-brand-text mx-3">Poliklinik POLNEP</div>
   </a>
 
-  <hr class="sidebar-divider my-0">
-
+  <hr class="sidebar-divider">
+  <!-- Heading -->
+  <div class="sidebar-heading">
+    Administator
+  </div>
   <li class="nav-item <?= $this->uri->segment(1) == 'dashboard' ? 'active' : '' ?>">
     <a class="nav-link" href="<?= base_url('dashboard') ?>">
       <i class="fas fa-fw fa-tachometer-alt"></i>
       <span>Dashboard</span></a>
   </li>
+  
+  <hr class="sidebar-divider">
+  <!-- Heading -->
+  <div class="sidebar-heading">
+    User
+  </div>
+  
 
-  <li class="nav-item <?= $this->uri->segment(1) == 'siswa' ? 'active' : '' ?>">
-    <a class="nav-link" href="<?= base_url('siswa') ?>">
-      <i class="fas fa-fw fa-user-md"></i>
-      <span>Data Petugas Medis</span></a>
-  </li>
-
-  <li class="nav-item <?= $this->uri->segment(1) == 'siswa' ? 'active' : '' ?>">
-    <a class="nav-link" href="<?= base_url('siswa') ?>">
+  <li class="nav-item <?= $this->uri->segment(1) == 'pasien' ? 'active' : '' ?>">
+    <a class="nav-link" href="<?= base_url('pasien') ?>">
       <i class="fas fa-fw fa-users"></i>
       <span>Data Pasien</span></a>
   </li>
@@ -37,7 +41,11 @@
       <i class="fas fa-fw  fa-stethoscope"></i>
       <span>Data Penyakit</span></a>
   </li>
-
+  <li class="nav-item <?= $this->uri->segment(1) == 'siswa' ? 'active' : '' ?>">
+    <a class="nav-link" href="<?= base_url('siswa') ?>">
+      <i class="fas fa-fw fa-user-md"></i>
+      <span>Data Petugas Medis</span></a>
+  </li>
   <li class="nav-item <?= $this->uri->segment(1) == 'inventori' ? 'active' : '' ?>">
     <a class="nav-link" href="<?= base_url('inventori') ?>">
       <i class="fas fa-fw fa-paste"></i>
@@ -50,13 +58,19 @@
       <span>Data Pemeriksaan</span></a>
   </li>
 
-  <li class="nav-item <?= $this->uri->segment(1) == 'siswa' ? 'active' : '' ?>">
+  <li class="nav-item <?= $this->uri->segment(1) == 'laporan' ? 'active' : '' ?>">
     <a class="nav-link" href="<?= base_url('siswa') ?>">
       <i class="fas fa-fw fa-print"></i>
       <span>Laporan</span></a>
   </li>
+  
   <hr class="sidebar-divider d-none d-md-block">
-
+  <li class="nav-item">
+    <a class="nav-link" href="<?= base_url('auth/logout'); ?>">
+      <i class="fas fa-fw fa-sign-out-alt"></i>
+      <span>Logout</span></a>
+  </li>
+  <hr class="sidebar-divider d-none d-md-block">
   <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
   </div>
