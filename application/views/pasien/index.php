@@ -14,7 +14,7 @@
 		          <!-- Page Heading -->
 		          <div class="d-sm-flex align-items-center justify-content-between mb-4">
 		            <h1 class="h3 mb-0 text-gray-800"><?= $title ?></h1>
-		            <a href="<?= base_url('siswa/tambah') ?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i>&nbsp;&nbsp;Tambah Data</a>
+		            <a href="<?= base_url('pasien/tambah') ?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i>&nbsp;&nbsp;Tambah Data</a>
 		          </div>
 		          <hr>
 
@@ -24,47 +24,41 @@
 					
 					<div class="card mb-4">
 		                <div class="card-header">
-		                  <i class="fas fa-table"></i>&nbsp;&nbsp;&nbsp;&nbsp;Daftar Siswa
+		                  <i class="fas fa-table"></i>&nbsp;&nbsp;&nbsp;&nbsp;Daftar Pasien
 		                </div>
 		                <div class="card-body">
-		                  <div class="table-responsive">
-			                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+		                  <div class="table-responsive ">
+			                <table class="table table-hover table-bordered" id="dataTable" width="100%" cellspacing="0">
 			                  <thead>
 			                    <tr>
 			                      <th>No</th>
-			                      <th>Nama</th>
-			                      <th>NIS</th>
+			                      <th>Nama Depan</th>
+			                      <th>Nama Belakang</th>
 			                      <th>Jenis Kelamin</th>
+			                      <th>Golongan Darah</th>
 			                      <th>Tempat Tanggal Lahir</th>
+			                      <th>Agama</th>
 			                      <th>Alamat</th>
-			                      <th>Aksi</th>
+			                      <th>No Handphone</th>
+			                      <th colspan="2">Aksi</th>
 			                    </tr>
 			                  </thead>
-			                  <tfoot>
-			                    <tr>
-			                      <th>No</th>
-			                      <th>Nama</th>
-			                      <th>NIS</th>
-			                      <th>Jenis Kelamin</th>
-			                      <th>Tempat Tanggal Lahir</th>
-			                      <th>Alamat</th>
-			                      <th>Aksi</th>
-			                    </tr>
-			                  </tfoot>
 			                  <tbody>
-								<?php foreach ($all_siswa as $siswa): ?>
+								<?php foreach ($all_pasien as $pasien): ?>
 									<tr>
 										<td><?= $no++ ?></td>
-										<td><?= $siswa->nama_siswa ?></td>
-										<td><?= $siswa->nis_siswa ?></td>
-										<td><?= $siswa->jenis_kelamin == 'L' ? 'Laki - Laki' : 'Perempuan' ?></td>
-										<td><?= $siswa->tempat_lahir ?>, <?= date('d-m-Y', strtotime($siswa->tanggal_lahir)) ?></td>
-										<td><?= $siswa->alamat_siswa ?></td>
+										<td><?= $pasien->nama_depan ?></td>
+										<td><?= $pasien->nama_belakang ?></td>
+										<td><?= $pasien->jenis_kelamin ?></td>
+										<td><?= $pasien->golongan_darah ?></td>
+										<td><?= $pasien->tempat_lahir ?>, <?= date('d-m-Y', strtotime($pasien->tanggal_lahir)) ?></td>
+										<td><?= $pasien->agama ?></td>
+										<td><?= $pasien->alamat ?></td>
+										<td><?= $pasien->nomor_hp ?></td>
+										
 										<td>
-											<a href="<?= base_url('siswa/ubah/' . $siswa->id) ?>" class="btn btn-sm btn-success"><i class="fas fa-sm fa-pen"></i>&nbsp;&nbsp;</a>
-											<a href="<?= base_url('siswa/hapus/' . $siswa->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin?')"><i class="fas fa-sm fa-trash"></i>&nbsp;&nbsp;</a>
-										</td>
-									</tr>	
+											<a href="<?= base_url('pasien/ubah/' . $pasien->id) ?>" class="btn btn-sm btn-success"><i class="fas fa-sm fa-pen"></i>&nbsp;Ubah</a>
+											<a href="<?= base_url('pasien/hapus/' . $pasien->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin?')"><i class="fas fa-sm fa-trash"></i>&nbsp;Hapus</a>									</tr>	
 								<?php endforeach ?>	
 			                  </tbody>
 			                </table>

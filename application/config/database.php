@@ -80,7 +80,7 @@ $db['default'] = array(
 	'password' => '',
 	'database' => 'db_poliklinik_polnep',
 	'dbdriver' => 'mysqli',
-	'dbprefix' => 'tbl_',
+	'dbprefix' => 'tb_',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),
 	'cache_on' => FALSE,
