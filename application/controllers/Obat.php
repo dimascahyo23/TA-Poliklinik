@@ -1,30 +1,31 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Pasien extends CI_Controller {
+class Obat extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
-		$this->load->model('m_pasien');
+		$this->load->model('m_obat');
 		if(!$this->session->has_userdata('auth')) redirect(base_url('auth/login'),'refresh');
 	}
 
 	public function index(){
-		$data['title'] = 'Data Pasien';
+		$data['title'] = 'Data Obat';
 		$data['no'] = 1;
-		$data[ 'all_pasien'] = $this->m_pasien->get();
-		$this->load->view('pasien/index', $data);
+		$data[ 'all_obat'] = $this->m_obat->get();
+		$this->load->view('obat/index', $data);
 	}
 
 	public function tambah(){
-		$data['title'] = 'Tambah Pasien';
+		$data['title'] = 'Tambah obat';
 
 		// validasi form di inputan
 		if(isset($_POST['tambah'])){
-			$this->form_validation->set_rules('nama_lengkap', 'Nama Pasien', 'required|min_length[3]|max_length[50]');
-			$this->form_validation->set_rules('alamat', 'Alamat', 'required|min_length[15]|max_length[100]');		
-			$this->form_validation->set_rules('jenis_kelamin', 'Jenis Kelamin', 'required|in_list[L,P]');
-			$this->form_validation->set_rules('tanggal_lahir', 'Tanggal Lahir', 'required');
+			$this->form_validation->set_rules('nama_obat', 'Nama obat', 'required|min_length[3]|max_length[50]');
+			$this->form_validation->set_rules('satuan', 'Satuan', 'required|min_length[3]|max_length[100]');		
+			$this->form_validation->set_rules('jenis_obat', 'Jenis Obat', 'required|min_length[3]|max_length[100]');
+			$this->form_validation->set_rules('stok', 'Stok', 'required', 'Nomor Telepon', 'integer');
+			$this->form_validation->set_rules('harga', 'Harga', 'required' ,'integer');
 			$this->form_validation->set_rules('nomor_hp', 'Nomor Telepon', 'integer');
 
 			// aturan untun pesan yang akan tampil
@@ -40,27 +41,27 @@ class Pasien extends CI_Controller {
 			if ($this->form_validation->run() == TRUE) {
 				if($this->m_pasien->store()){
 					//$this->m_kelas->set_total_siswa($this->m_siswa->count());
-					$this->session->set_flashdata('success', 'Data pasien berhasil ditambahkan!');
-					redirect(base_url('pasien'),'refresh');
+					$this->session->set_flashdata('success', 'Data obat berhasil ditambahkan!');
+					redirect(base_url('obat'),'refresh');
 				}
 			} else {
-				$this->session->set_flashdata('success', 'Data pasien gagal ditambahkan!');
-				$this->load->view('pasien/tambah', $data);
+				$this->session->set_flashdata('success', 'Data obat gagal ditambahkan!');
+				$this->load->view('obat/tambah', $data);
 			}
 		} else {
-			$this->load->view('pasien/tambah', $data);
+			$this->load->view('obat/tambah', $data);
 
 		}
 	}
 
 	public function ubah($id = null){
 		if($id == NULL){
-			redirect(base_url('pasien'),'refresh');
+			redirect(base_url('obat'),'refresh');
 		}
-		$data['title'] = 'Ubah Pasien';
-		$data['pasien'] = $this->m_pasien->show($id);
+		$data['title'] = 'Ubah obat';
+		$data['obat'] = $this->m_obat->show($id);
 		if(isset($_POST['ubah'])){
-			$this->form_validation->set_rules('nama_lengkap', 'Nama Pasien', 'required|min_length[3]|max_length[50]');
+			$this->form_validation->set_rules('nama_lengkap', 'Nama obat', 'required|min_length[3]|max_length[50]');
 			$this->form_validation->set_rules('alamat', 'Alamat', 'required|min_length[15]|max_length[100]');		
 			// $this->form_validation->set_rules('jenis_kelamin', 'Jenis Kelamin', 'required|in_list[L,P]');
 			$this->form_validation->set_rules('tanggal_lahir', 'Tanggal Lahir', 'required');
@@ -75,30 +76,30 @@ class Pasien extends CI_Controller {
 			$this->form_validation->set_message('exact_length', 'Kolom {field} harus sebanyak {param} karakter!');
 
 			if ($this->form_validation->run() == TRUE) {
-				if($this->m_pasien->update($id)){
-					$this->session->set_flashdata('success', 'Data pasien berhasil diubah!');
-					redirect(base_url('pasien'),'refresh');
+				if($this->m_obat->update($id)){
+					$this->session->set_flashdata('success', 'Data obat berhasil diubah!');
+					redirect(base_url('obat'),'refresh');
 				}
 			} else {
-				$this->session->set_flashdata('success', 'Data pasien gagal diubah!');
-				$this->load->view('pasien/ubah', $data);
+				$this->session->set_flashdata('success', 'Data obat gagal diubah!');
+				$this->load->view('obat/ubah', $data);
 			}
 		} else {
-			$this->load->view('pasien/ubah', $data);
+			$this->load->view('obat/ubah', $data);
 		}
 	}
 
 	public function hapus($id = NULL){
 		if($id == NULL){
-			redirect(base_url('pasien'),'refresh');
+			redirect(base_url('obat'),'refresh');
 		}
-		if($this->m_pasien->delete($id)){
+		if($this->m_obat->delete($id)){
 			//$this->m_kelas->set_total_siswa($this->m_siswa->count());
-			$this->session->set_flashdata('success', 'Data pasien berhasil dihapus!');
-			redirect(base_url('pasien'),'refresh');
+			$this->session->set_flashdata('success', 'Data obat berhasil dihapus!');
+			redirect(base_url('obat'),'refresh');
 		} else {
-			$this->session->set_flashdata('error', 'Data pasien gagal dihapus!');
-			redirect(base_url('pasien'),'refresh');
+			$this->session->set_flashdata('error', 'Data obat gagal dihapus!');
+			redirect(base_url('obat'),'refresh');
 		}
 	}
 

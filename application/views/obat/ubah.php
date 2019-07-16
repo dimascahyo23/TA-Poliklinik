@@ -22,86 +22,78 @@
 				  		<h6 class="m-0 font-weight-bold text-primary">Data Pasien</h6>
 				  	</div>
 					  <div class="card-body">
-						  <?= form_open('pasien/tambah') ?>
+						  <?= form_open('obat/ubah') ?>
 							<div class="form-row align-items-center">
 								<div class="col-sm-12 col-md-12 col-xl-12 col-lg-12">
 									<div class="col-sm-12 my-1">
 										
-										<!-- Mulai membuat input data pasien -->
+										<!-- Mulai membuat input data obat -->
 										<div class="input-group">
 											<div class="input-group-prepend">
 												<div class="input-group-text" style="width: 150px">
-													Nama Lengkap
+													Nama Obat
 												</div>
 											</div>
-											<?= form_input('nama_lengkap', set_value('nama_lengkap'), ['class' => 'form-control', 'autocomplete' => 'off']); ?>
-										</div>
-										<?= form_error('nama_lengkap', '<div class="text-danger mt-2">', '</div>') ?>
-															
-										<div class="input-group mt-2">
-											<div class="input-group-prepend">
-												<div class="input-group-text" style="width: 150px">
-													Jenis Kelamin
-												</div>
-											</div>
-											<?= form_dropdown('jenis_kelamin', [NULL => 'Pilih Jenis Kelamin', 'L' => 'Laki Laki', 'P' => 'Perempuan'], set_value('jenis_kelamin'), ['class' => 'form-control', 'autocomplete' => 'off']); ?>
+											<?= form_input('nama_obat', set_value('nama_obat'), ['class' => 'form-control', 'autocomplete' => 'off']); ?>
 										</div>
 
-										<?= form_error('jenis_kelamin', '<div class="text-danger mt-2">', '</div>') ?>
+										<?= form_error('nama_obat', '<div class="text-danger mt-2">', '</div>') ?>
 
 										<div class="input-group mt-2">
 											<div class="input-group-prepend">
 												<div class="input-group-text" style="width: 150px">
-													Golongan Darah
+													Satuan
 												</div>
 											</div>
-											<?= form_dropdown('golongan_darah', [NULL => 'Pilih Golongan Darah', 'A' => 'A', 'B' => 'B', 'AB' => 'AB', 'O' => 'O'], set_value('golongan_darah'), ['class' => 'form-control', 'autocomplete' => 'off']); ?>
-										</div>	
-										
+											<?= form_input('satuan', set_value('satuan'), ['class' => 'form-control', 'autocomplete' => 'off']); ?>
+										</div>
+
+										<?= form_error('satuan', '<div class="text-danger mt-2">', '</div>') ?>
+
 										<div class="input-group mt-2">
 											<div class="input-group-prepend">
 												<div class="input-group-text" style="width: 150px">
-													Tanggal Lahir
+													Jenis Obat
 												</div>
 											</div>
-											<input type="date" name="tanggal_lahir" class="form-control" value="<?= set_value('tanggal_lahir') ?>">
+											<?= form_dropdown('jenis_obat', [NULL => 'Pilih Jenis Kelamin', 'L' => 'Laki Laki', 'P' => 'Perempuan'], set_value('jenis_obat'), ['class' => 'form-control', 'autocomplete' => 'off']); ?>
 										</div>
 
-										<?= form_error('tanggal_lahir', '<div class="text-danger mt-2">', '</div>') ?>				
-										
+										<?= form_error('jenis_obat', '<div class="text-danger mt-2">', '</div>') ?>									
+
 										<div class="input-group mt-2">
 											<div class="input-group-prepend">
 												<div class="input-group-text" style="width: 150px">
-													Alamat
+													Stok
 												</div>
 											</div>
-											<?= form_input('alamat', set_value('alamat'), ['class' => 'form-control', 'autocomplete' => 'off']); ?>
+										<?= form_input('stok', set_value('stok'), ['class' => 'form-control', 'autocomplete' => 'off']); ?>
 										</div>
 
-										<?= form_error('alamat', '<div class="text-danger mt-2">', '</div>') ?>
+										<?= form_error('stok', '<div class="text-danger mt-2">', '</div>') ?>
+
 										<div class="input-group mt-2">
 											<div class="input-group-prepend">
 												<div class="input-group-text" style="width: 150px">
-													Nomor Telepon
+													Harga
 												</div>
 											</div>
-											<?= form_input('nomor_hp', set_value('nomor_hp'), ['class' => 'form-control', 'autocomplete' => 'off']); ?>
+											<input type="date" name="harga" class="form-control" value="<?= set_value('harga') ?>">
 										</div>
 
-										<?= form_error('nomor_hp', '<div class="text-danger mt-2">', '</div>') ?>															
+										<?= form_error('harga', '<div class="text-danger mt-2">', '</div>') ?>	
 
-										<button class="btn btn-block btn-primary mt-4" name="tambah"><i class="fas fa-save fa-sm"></i>Tambah</button>
+										<button class="btn btn-block btn-primary mt-4" name="tambah"><i class="fas fa-save fa-sm"></i> Tambah</button>
 									</div>
 								</div>
 							</div>
 						  <?= form_close() ?>
-
 					  </div>
 				  </div>
 
 		        </div>
 			</div>
-		<?php $this->load->view('_partials/footer');?>
+		<?php $this->load->view('_partials/footer'); ?>
 		</div>
 	</div>
 	<?php $this->load->view('_partials/js'); ?>

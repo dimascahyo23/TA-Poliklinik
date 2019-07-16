@@ -1,9 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class m_pasien extends CI_Model {
+class m_obat extends CI_Model {
 
-	protected $table = 'pasien';
+	protected $table = 'obat';
 
 	public function get(){
 		$query = $this->db->get($this->db->dbprefix($this->table));
@@ -20,13 +20,13 @@ class m_pasien extends CI_Model {
 	}
 
 	public function store(){
-		$data = [			
-			'nama_lengkap' => $this->input->post('nama_lengkap'),			
-			'jenis_kelamin' => $this->input->post('jenis_kelamin'),
-			'golongan_darah' => $this->input->post('golongan_darah'),			
-			'tanggal_lahir' => $this->input->post('tanggal_lahir'),	
-			'alamat' => $this->input->post('alamat'),
-			'nomor_hp' => $this->input->post('nomor_hp'),				
+		$data = [
+			'nama_obat' => $this->input->post('nama_obat'),
+			'satuan' => $this->input->post('satuan'),
+			'jenis_obat' => $this->input->post('jenis_obat'),
+			'stok' => $this->input->post('stok'),
+			'harga' => $this->input->post('harga'),
+			'keterangan' => $this->input->post('keterangan'),
 		];
 
 		$query = $this->db->insert($this->db->dbprefix($this->table), $data);
@@ -40,13 +40,13 @@ class m_pasien extends CI_Model {
 	}
 
 	public function update($id){
-		$data = [			
-			'nama_lengkap' => $this->input->post('nama_lengkap'),			
-			'jenis_kelamin' => $this->input->post('jenis_kelamin'),
-			'golongan_darah' => $this->input->post('golongan_darah'),			
-			'tanggal_lahir' => $this->input->post('tanggal_lahir'),	
-			'alamat' => $this->input->post('alamat'),
-			'nomor_hp' => $this->input->post('nomor_hp'),			
+		$data = [
+			'nama_obat' => $this->input->post('nama_obat'),
+			'satuan' => $this->input->post('satuan'),
+			'jenis_obat' => $this->input->post('jenis_obat'),
+			'stok' => $this->input->post('stok'),
+			'harga' => $this->input->post('harga'),
+			'keterangan' => $this->input->post('keterangan'),		
 		];
 		$query = $this->db->set($data);
 		$query = $this->db->where('id', $id);
@@ -55,6 +55,5 @@ class m_pasien extends CI_Model {
 	}
 
 }
-
-/* End of file m_pasien.php */
-/* Location: ./application/models/m_pasien.php */
+/* End of file m_obat.php */
+/* Location: ./application/models/m_obat.php */

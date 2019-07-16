@@ -24,41 +24,41 @@
 					
 					<div class="card mb-4">
 		                <div class="card-header">
-		                  <i class="fas fa-table"></i>&nbsp;&nbsp;&nbsp;&nbsp;Daftar pasien
+		                  <i class="fas fa-table"></i>&nbsp;&nbsp;&nbsp;&nbsp;Daftar Pasien
 		                </div>
 		                <div class="card-body">
-		                  <div class="table-responsive">
+		                  <div class="table-responsive ">
 			                <table class="table table-hover table-bordered" id="dataTable" width="100%" cellspacing="0">
 			                  <thead>
 			                    <tr>
 			                      <th>No</th>
-			                      <th>Nama Lengkap</th>			                      
+			                      <th>Nama Depan</th>
+			                      <th>Nama Belakang</th>
 			                      <th>Jenis Kelamin</th>
 			                      <th>Golongan Darah</th>
-			                      <th>Tanggal Lahir</th>			                      
+			                      <th>Tempat Tanggal Lahir</th>
+			                      <th>Agama</th>
 			                      <th>Alamat</th>
 			                      <th>No Handphone</th>
-			                      <th>Aksi</th>
+			                      <th colspan="2">Aksi</th>
 			                    </tr>
 			                  </thead>
-			                  <tfoot>
-			                    
-			                  </tfoot>
 			                  <tbody>
 								<?php foreach ($all_pasien as $pasien): ?>
 									<tr>
 										<td><?= $no++ ?></td>
-										<td><?= $pasien->nama_lengkap ?></td>				
+										<td><?= $pasien->nama_depan ?></td>
+										<td><?= $pasien->nama_belakang ?></td>
 										<td><?= $pasien->jenis_kelamin == 'L' ? 'Laki-Laki' : 'Perempuan' ?></td>
 										<td><?= $pasien->golongan_darah ?></td>
-										<td><?= date('d-m-Y', strtotime($pasien->tanggal_lahir)) ?></td>
+										<td><?= $pasien->tempat_lahir ?>, <?= date('d-m-Y', strtotime($pasien->tanggal_lahir)) ?></td>
+										<td><?= $pasien->agama ?></td>
 										<td><?= $pasien->alamat ?></td>
 										<td><?= $pasien->nomor_hp ?></td>
-										<td colspan="2">
-											<a href="<?= base_url('pasien/ubah/' . $pasien->id) ?>" class="btn btn-sm btn-success"><i class="fas fa-sm fa-pen"></i></a>
-											<a href="<?= base_url('pasien/hapus/' . $pasien->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin?')"><i class="fas fa-sm fa-trash"></i></a>
-										</td>									
-									</tr>	
+										
+										<td>
+											<a href="<?= base_url('pasien/ubah/' . $pasien->id) ?>" class="btn btn-sm btn-success"><i class="fas fa-sm fa-pen"></i>&nbsp;Ubah</a>
+											<a href="<?= base_url('pasien/hapus/' . $pasien->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin?')"><i class="fas fa-sm fa-trash"></i>&nbsp;Hapus</a>									</tr>	
 								<?php endforeach ?>	
 			                  </tbody>
 			                </table>

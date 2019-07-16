@@ -30,19 +30,19 @@
       <span>Data Pasien</span></a>
   </li>
 
-  <li class="nav-item <?= $this->uri->segment(1) == 'siswa' ? 'active' : '' ?>">
-    <a class="nav-link" href="<?= base_url('siswa') ?>">
+  <li class="nav-item <?= $this->uri->segment(1) == 'obat' ? 'active' : '' ?>">
+    <a class="nav-link" href="<?= base_url('obat') ?>">
       <i class="fas fa-fw fa-medkit "></i>
       <span>Data Obat</span></a>
   </li>
 
-  <li class="nav-item <?= $this->uri->segment(1) == 'siswa' ? 'active' : '' ?>">
-    <a class="nav-link" href="<?= base_url('siswa') ?>">
+  <li class="nav-item <?= $this->uri->segment(1) == 'penyakit' ? 'active' : '' ?>">
+    <a class="nav-link" href="<?= base_url('penyakit') ?>">
       <i class="fas fa-fw  fa-stethoscope"></i>
       <span>Data Penyakit</span></a>
   </li>
-  <li class="nav-item <?= $this->uri->segment(1) == 'siswa' ? 'active' : '' ?>">
-    <a class="nav-link" href="<?= base_url('siswa') ?>">
+  <li class="nav-item <?= $this->uri->segment(1) == 'petugas_medis' ? 'active' : '' ?>">
+    <a class="nav-link" href="<?= base_url('petugas_medis') ?>">
       <i class="fas fa-fw fa-user-md"></i>
       <span>Data Petugas Medis</span></a>
   </li>
@@ -52,14 +52,14 @@
       <span>Data Rekam Medis</span></a>
   </li>
   
-  <li class="nav-item <?= $this->uri->segment(1) == 'siswa' ? 'active' : '' ?>">
-    <a class="nav-link" href="<?= base_url('siswa') ?>">
+  <li class="nav-item <?= $this->uri->segment(1) == 'pemeriksaan' ? 'active' : '' ?>">
+    <a class="nav-link" href="<?= base_url('pemeriksaan') ?>">
       <i class="fas fa-fw fa-database"></i>
       <span>Data Pemeriksaan</span></a>
   </li>
 
   <li class="nav-item <?= $this->uri->segment(1) == 'laporan' ? 'active' : '' ?>">
-    <a class="nav-link" href="<?= base_url('siswa') ?>">
+    <a class="nav-link" href="<?= base_url('laporan') ?>">
       <i class="fas fa-fw fa-print"></i>
       <span>Laporan</span></a>
   </li>

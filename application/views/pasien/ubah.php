@@ -31,25 +31,14 @@
 										<div class="input-group">
 											<div class="input-group-prepend">
 												<div class="input-group-text" style="width: 150px">
-													Nama Depan
+													Nama Lengkap
 												</div>
 											</div>
-										<?= form_input('nama_depan', form_error('nama_depan') ? set_value('nama_depan') : $pasien->nama_depan, ['class' => 'form-control', 'autocomplete' => 'off']); ?>
+										<?= form_input('nama_lengkap', form_error('nama_lengkap') ? set_value('nama_lengkap') : $pasien->nama_lengkap, ['class' => 'form-control', 'autocomplete' => 'off']); ?>
 										</div>
 
-										<?= form_error('nama_depan', '<div class="text-danger mt-2">', '</div>') ?>
-
-										<div class="input-group mt-2">
-											<div class="input-group-prepend">
-												<div class="input-group-text" style="width: 150px">
-													Nama Belakang
-												</div>
-											</div>
-											<?= form_input('nama_belakang', form_error('nama_belakang') ? set_value('nama_belakang') : $pasien->nama_belakang, ['class' => 'form-control', 'autocomplete' => 'off']); ?>
-										</div>
-
-										<?= form_error('nama_belakang', '<div class="text-danger mt-2">', '</div>') ?>
-
+										<?= form_error('nama_lengkap', '<div class="text-danger mt-2">', '</div>') ?>
+									
 										<div class="input-group mt-2">
 											<div class="input-group-prepend">
 												<div class="input-group-text" style="width: 150px">
@@ -69,18 +58,7 @@
 											</div>
 											<?= form_dropdown('golongan_darah', [NULL => 'Pilih Golongan Darah', 'A' => 'A', 'B' => 'B', 'AB' => 'AB', 'O' => 'O'], form_error('golongan_darah') ? set_value('golongan_darah') : $pasien->golongan_darah, ['class' => 'form-control', 'autocomplete' => 'off']); ?>
 										</div>	
-
-										<div class="input-group mt-2">
-											<div class="input-group-prepend">
-												<div class="input-group-text" style="width: 150px">
-													Tempat Lahir
-												</div>
-											</div>
-											<?= form_input('tempat_lahir', form_error('tempat_lahir') ? set_value('tempat_lahir') : $pasien->tempat_lahir, ['class' => 'form-control', 'autocomplete' => 'off']); ?>
-										</div>
-
-										<?= form_error('tempat_lahir', '<div class="text-danger mt-2">', '</div>') ?>
-										
+									
 										<div class="input-group mt-2">										
 											<div class="input-group-prepend">
 												<div class="input-group-text" style="width: 150px">
@@ -91,18 +69,7 @@
 										</div>
 
 										<?= form_error('tanggal_lahir', '<div class="text-danger mt-2">', '</div>') ?>				
-
-										<div class="input-group mt-2">
-											<div class="input-group-prepend">
-												<div class="input-group-text" style="width: 150px">
-													Agama
-												</div>
-											</div>
-											<?= form_dropdown('agama', [NULL => 'Pilih Agama', 'Islam' => 'Islam', 'Kristen' => 'Kristen', 'Hindu' => 'Hindu', 'Budha' => 'Budha', 'Konghucu' => 'Konghucu'], form_error('agama') ? set_value('agama') : $pasien->agama, ['class' => 'form-control', 'autocomplete' => 'off']); ?>
-										</div>
-
-										<?= form_error('agama', '<div class="text-danger mt-2">', '</div>') ?>
-
+									
 										<div class="input-group mt-2">
 											<div class="input-group-prepend">
 												<div class="input-group-text" style="width: 150px">
