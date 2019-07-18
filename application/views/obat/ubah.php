@@ -14,15 +14,15 @@
 		          <!-- Page Heading -->
 		          <div class="d-sm-flex align-items-center justify-content-between mb-4">
 		            <h1 class="h3 mb-0 text-gray-800"><?= $title ?></h1>
-		            <a href="<?= base_url('pasien') ?>" class="d-none d-sm-inline-block btn btn-sm btn-secondary shadow-sm"><i class="fas fa-reply fa-sm text-white-50"></i>&nbsp;&nbsp;Kembali</a>
+		            <a href="<?= base_url('obat') ?>" class="d-none d-sm-inline-block btn btn-sm btn-secondary shadow-sm"><i class="fas fa-reply fa-sm text-white-50"></i>&nbsp;&nbsp;Kembali</a>
 		          </div>
 				  <hr>
 				  <div class="card shadow mb-4">
 				  	<div class="card-header py-3">
-				  		<h6 class="m-0 font-weight-bold text-primary">Data Pasien</h6>
+				  		<h6 class="m-0 font-weight-bold text-primary">Data Obat</h6>
 				  	</div>
 					  <div class="card-body">
-						  <?= form_open('obat/ubah') ?>
+						  <?= form_open('obat/ubah/' . $obat->id) ?>
 							<div class="form-row align-items-center">
 								<div class="col-sm-12 col-md-12 col-xl-12 col-lg-12">
 									<div class="col-sm-12 my-1">
@@ -34,7 +34,7 @@
 													Nama Obat
 												</div>
 											</div>
-											<?= form_input('nama_obat', set_value('nama_obat'), ['class' => 'form-control', 'autocomplete' => 'off']); ?>
+										<?= form_input('nama_obat', form_error('nama_obat') ? set_value('nama_obat') : $obat->nama_obat, ['class' => 'form-control', 'autocomplete' => 'off']); ?>
 										</div>
 
 										<?= form_error('nama_obat', '<div class="text-danger mt-2">', '</div>') ?>
@@ -45,7 +45,7 @@
 													Satuan
 												</div>
 											</div>
-											<?= form_input('satuan', set_value('satuan'), ['class' => 'form-control', 'autocomplete' => 'off']); ?>
+											<?= form_input('satuan', form_error('satuan') ? set_value('satuan') : $obat->satuan, ['class' => 'form-control', 'autocomplete' => 'off']); ?>
 										</div>
 
 										<?= form_error('satuan', '<div class="text-danger mt-2">', '</div>') ?>
@@ -56,7 +56,7 @@
 													Jenis Obat
 												</div>
 											</div>
-											<?= form_dropdown('jenis_obat', [NULL => 'Pilih Jenis Kelamin', 'L' => 'Laki Laki', 'P' => 'Perempuan'], set_value('jenis_obat'), ['class' => 'form-control', 'autocomplete' => 'off']); ?>
+													<?= form_dropdown('jenis_obat', [NULL => 'Pilih Jenis Obat', 'tablet' => 'Tablet', 'kotak' => 'Kotak', 'keping' => 'Keping'], form_error('jenis_obat') ? set_value('jenis_obat') : $obat->jenis_obat, ['class' => 'form-control', 'autocomplete' => 'off']); ?>
 										</div>
 
 										<?= form_error('jenis_obat', '<div class="text-danger mt-2">', '</div>') ?>									
@@ -67,7 +67,7 @@
 													Stok
 												</div>
 											</div>
-										<?= form_input('stok', set_value('stok'), ['class' => 'form-control', 'autocomplete' => 'off']); ?>
+										<?= form_input('stok', form_error('stok') ? set_value('stok') : $obat->stok, ['class' => 'form-control', 'autocomplete' => 'off']); ?>
 										</div>
 
 										<?= form_error('stok', '<div class="text-danger mt-2">', '</div>') ?>
@@ -78,12 +78,22 @@
 													Harga
 												</div>
 											</div>
-											<input type="date" name="harga" class="form-control" value="<?= set_value('harga') ?>">
+												<?= form_input('harga', form_error('harga') ? set_value('harga') : $obat->harga, ['class' => 'form-control', 'autocomplete' => 'off']); ?>
 										</div>
-
 										<?= form_error('harga', '<div class="text-danger mt-2">', '</div>') ?>	
 
-										<button class="btn btn-block btn-primary mt-4" name="tambah"><i class="fas fa-save fa-sm"></i> Tambah</button>
+										<div class="input-group mt-2">
+											<div class="input-group-prepend">
+												<div class="input-group-text" style="width: 150px">
+													Keterangan
+												</div>
+											</div>
+											<?= form_input('keterangan', form_error('keterangan') ? set_value('keterangan') : $obat->keterangan, ['class' => 'form-control', 'autocomplete' => 'off']); ?>
+										</div>
+
+										<?= form_error('keterangan', '<div class="text-danger mt-2">', '</div>') ?>	
+
+										<button class="btn btn-block btn-primary mt-4" name="ubah"><i class="fas fa-save fa-sm"></i> Ubah</button>
 									</div>
 								</div>
 							</div>

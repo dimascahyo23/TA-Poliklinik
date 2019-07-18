@@ -26,7 +26,7 @@ class Obat extends CI_Controller {
 			$this->form_validation->set_rules('jenis_obat', 'Jenis Obat', 'required|min_length[3]|max_length[100]');
 			$this->form_validation->set_rules('stok', 'Stok', 'required', 'Nomor Telepon', 'integer');
 			$this->form_validation->set_rules('harga', 'Harga', 'required' ,'integer');
-			$this->form_validation->set_rules('nomor_hp', 'Nomor Telepon', 'integer');
+			$this->form_validation->set_rules('keterangan', 'Keterangan');
 
 			// aturan untun pesan yang akan tampil
 			// dengan kondisi sesuai pesan
@@ -39,7 +39,7 @@ class Obat extends CI_Controller {
 			$this->form_validation->set_message('exact_length', 'Kolom {field} harus sebanyak {param} karakter!');
 
 			if ($this->form_validation->run() == TRUE) {
-				if($this->m_pasien->store()){
+				if($this->m_obat->store()){
 					//$this->m_kelas->set_total_siswa($this->m_siswa->count());
 					$this->session->set_flashdata('success', 'Data obat berhasil ditambahkan!');
 					redirect(base_url('obat'),'refresh');
@@ -58,14 +58,16 @@ class Obat extends CI_Controller {
 		if($id == NULL){
 			redirect(base_url('obat'),'refresh');
 		}
-		$data['title'] = 'Ubah obat';
+		$data['title'] = 'Ubah Obat';
 		$data['obat'] = $this->m_obat->show($id);
 		if(isset($_POST['ubah'])){
-			$this->form_validation->set_rules('nama_lengkap', 'Nama obat', 'required|min_length[3]|max_length[50]');
-			$this->form_validation->set_rules('alamat', 'Alamat', 'required|min_length[15]|max_length[100]');		
-			// $this->form_validation->set_rules('jenis_kelamin', 'Jenis Kelamin', 'required|in_list[L,P]');
-			$this->form_validation->set_rules('tanggal_lahir', 'Tanggal Lahir', 'required');
-			$this->form_validation->set_rules('nomor_hp', 'Nomor Telepon', 'integer');
+			$this->form_validation->set_rules('nama_obat', 'Nama obat', 'required|min_length[3]|max_length[50]');
+			$this->form_validation->set_rules('satuan', 'Satuan', 'required|min_length[3]|max_length[100]');		
+			$this->form_validation->set_rules('jenis_obat', 'Jenis Obat', 'required|min_length[3]|max_length[100]');
+			$this->form_validation->set_rules('stok', 'Stok', 'required', 'Nomor Telepon', 'integer');
+			$this->form_validation->set_rules('harga', 'Harga', 'required' ,'integer');
+			$this->form_validation->set_rules('keterangan', 'Keterangan');
+			// $this->form_validation->set_rules('jenis_kelamin', 'Jenis Kelamin', 'required|in_list[L,P]');			
 
 			$this->form_validation->set_message('is_unique', '{field} tidak boleh sama dengan data sebelumya!');
 			$this->form_validation->set_message('required', 'Kolom {field} harus diisi!');

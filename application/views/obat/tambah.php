@@ -56,7 +56,7 @@
 													Jenis Obat
 												</div>
 											</div>
-											<?= form_dropdown('jenis_obat', [NULL => 'Pilih Jenis Kelamin', 'L' => 'Laki Laki', 'P' => 'Perempuan'], set_value('jenis_obat'), ['class' => 'form-control', 'autocomplete' => 'off']); ?>
+											<?= form_dropdown('jenis_obat', [NULL => 'Pilih Jenis Obat', 'tablet' => 'Tablet', 'kotak' => 'Kotak', 'keping' => 'Keping'], set_value('jenis_obat'), ['class' => 'form-control', 'autocomplete' => 'off']); ?>
 										</div>
 
 										<?= form_error('jenis_obat', '<div class="text-danger mt-2">', '</div>') ?>									
@@ -78,10 +78,21 @@
 													Harga
 												</div>
 											</div>
-											<input type="date" name="harga" class="form-control" value="<?= set_value('harga') ?>">
+											<?= form_input('harga', set_value('harga'), ['class' => 'form-control', 'autocomplete' => 'off']); ?>
 										</div>
 
-										<?= form_error('harga', '<div class="text-danger mt-2">', '</div>') ?>	
+										<?= form_error('harga', '<div class="text-danger mt-2">', '</div>') ?>
+
+										<div class="input-group mt-2">
+											<div class="input-group-prepend">
+												<div class="input-group-text" style="width: 150px">
+													Keterangan
+												</div>
+											</div>
+											<?= form_input('keterangan', set_value('keterangan'), ['class' => 'form-control', 'autocomplete' => 'off']); ?>
+										</div>
+
+										<?= form_error('keterangan', '<div class="text-danger mt-2">', '</div>') ?>	
 
 										<button class="btn btn-block btn-primary mt-4" name="tambah"><i class="fas fa-save fa-sm"></i> Tambah</button>
 									</div>
