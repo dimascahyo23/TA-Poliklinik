@@ -14,7 +14,7 @@
 		          <!-- Page Heading -->
 		          <div class="d-sm-flex align-items-center justify-content-between mb-4">
 		            <h1 class="h3 mb-0 texkt-gray-800"><?= $title ?></h1>
-		            <a href="<?= base_url('penyakit/tambah') ?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i>&nbsp;&nbsp;Tambah Data</a>
+		            <a href="<?= base_url('petugas/tambah') ?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i>&nbsp;&nbsp;Tambah Data</a>
 		          </div>
 		          <hr>
 
@@ -24,7 +24,7 @@
 					
 					<div class="card mb-4">
 		                <div class="card-header">
-		                  <i class="fas fa-table"></i>&nbsp;&nbsp;&nbsp;&nbsp;Daftar Penyakit
+		                  <i class="fas fa-table"></i>&nbsp;&nbsp;&nbsp;&nbsp;Daftar Petugas
 		                </div>
 		                <div class="card-body">
 		                  <div class="table-responsive">
@@ -32,25 +32,37 @@
 			                  <thead>
 			                    <tr>
 			                      <th>No</th>
-			                      <th>Nama penyakit</th>
-			                      <th>Jenis Penyakit</th>
-			                      <th>Penanganan</th>
-			                      <th>Aksi</th>			                      
+			                      <th>Nama Petugas</th>
+			                      <th>Tanggal Lahir</th>
+			                      <th>Alamat</th>
+			                      <th>Jabatan</th>
+			                      <th>Telepon</th>
+			                      <th>Email</th>                 
+			                      <th>Username</th>                 
+			                      <th>Password</th>                 
+			                      <th>Aksi</th>
 			                    </tr>
 			                  </thead>
 			                  <tfoot>
 			                    
 			                  </tfoot>
 			                  <tbody>
-								<?php foreach ($all_penyakit as $penyakit): ?>
+								<?php foreach ($all_petugas as $petugas): ?>
 									<tr>
 										<td><?= $no++ ?></td>
-										<td><?= $penyakit->nama_penyakit ?></td>										
-										<td><?= $penyakit->jenis_penyakit ?></td>
-										<td><?= $penyakit->penanganan ?></td>																	
-										<td colspan="2">
-											<a href="<?= base_url('penyakit/ubah/' . $penyakit->id) ?>" class="btn btn-sm btn-success"><i class="fas fa-sm fa-pen"></i></a>
-											<a href="<?= base_url('penyakit/hapus/' . $penyakit->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin?')"><i class="fas fa-sm fa-trash"></i></a>
+										<td><?= $petugas->nama_petugas ?></td>
+										<td><?= $petugas->tanggal_lahir ?></td>
+										<td><?= $petugas->alamat ?></td>
+										<td><?= $petugas->jabatan ?></td>
+										<td><?= $petugas->telepon ?></td>
+										<td><?= $petugasetugas->email ?></td>	
+										<td><?= $petugas->username ?></td>
+										<td><?= $petugas->password ?></td>										
+																				
+										<td>
+											<a href="<?= base_url('petugas/ubah/' . $petugas->id) ?>" class="btn btn-sm btn-success"><i class="fas fa-sm fa-pen"></i></a>
+											<a href="<?= base_url('petugas/ubah/' . $petugas->id) ?>" class="btn btn-sm btn-success"><i class="fas fa-sm fa-pen"></i></a>
+											<a href="<?= base_url('petugas/hapus/' . $petugas->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin?')"><i class="fas fa-sm fa-trash"></i></a>
 										</td>									
 									</tr>	
 								<?php endforeach ?>	

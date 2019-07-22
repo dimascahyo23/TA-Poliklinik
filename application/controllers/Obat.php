@@ -17,7 +17,7 @@ class Obat extends CI_Controller {
 	}
 
 	public function tambah(){
-		$data['title'] = 'Tambah obat';
+		$data['title'] = 'Tambah Obat';
 
 		// validasi form di inputan
 		if(isset($_POST['tambah'])){
@@ -107,5 +107,5 @@ class Obat extends CI_Controller {
 
 }
 
-/* End of file Siswa.php */
-/* Location: ./application/controllers/Siswa.php */
+/* End of file Obat.php */
+/* Location: ./application/controllers/Obat.php */

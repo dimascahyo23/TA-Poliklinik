@@ -55,7 +55,7 @@ class Penyakit extends CI_Controller {
 		if($id == NULL){
 			redirect(base_url('penyakit'),'refresh');
 		}
-		$data['title'] = 'Ubah penyakit';
+		$data['title'] = 'Ubah Penyakit';
 		$data['penyakit'] = $this->m_penyakit->show($id);
 		if(isset($_POST['ubah'])){
 			$this->form_validation->set_rules('nama_penyakit', 'Nama penyakit', 'required|min_length[3]|max_length[100]');				

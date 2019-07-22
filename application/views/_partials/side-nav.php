@@ -41,8 +41,8 @@
       <i class="fas fa-fw  fa-stethoscope"></i>
       <span>Data Penyakit</span></a>
   </li>
-  <li class="nav-item <?= $this->uri->segment(1) == 'petugas_medis' ? 'active' : '' ?>">
-    <a class="nav-link" href="<?= base_url('petugas_medis') ?>">
+  <li class="nav-item <?= $this->uri->segment(1) == 'petugas' ? 'active' : '' ?>">
+    <a class="nav-link" href="<?= base_url('petugas') ?>">
       <i class="fas fa-fw fa-user-md"></i>
       <span>Data Petugas Medis</span></a>
   </li>

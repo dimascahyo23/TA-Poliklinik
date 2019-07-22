@@ -14,50 +14,30 @@
 		          <!-- Page Heading -->
 		          <div class="d-sm-flex align-items-center justify-content-between mb-4">
 		            <h1 class="h3 mb-0 text-gray-800"><?= $title ?></h1>
-		            <a href="<?= base_url('pasien') ?>" class="d-none d-sm-inline-block btn btn-sm btn-secondary shadow-sm"><i class="fas fa-reply fa-sm text-white-50"></i>&nbsp;&nbsp;Kembali</a>
+		            <a href="<?= base_url('petugas') ?>" class="d-none d-sm-inline-block btn btn-sm btn-secondary shadow-sm"><i class="fas fa-reply fa-sm text-white-50"></i>&nbsp;&nbsp;Kembali</a>
 		          </div>
 				  <hr>
 				  <div class="card shadow mb-4">
 				  	<div class="card-header py-3">
-				  		<h6 class="m-0 font-weight-bold text-primary">Data Pasien</h6>
+				  		<h6 class="m-0 font-weight-bold text-primary">Data Petugas</h6>
 				  	</div>
 					  <div class="card-body">
-						  <?= form_open('pasien/tambah') ?>
+						  <?= form_open('petugas/tambah') ?>
 							<div class="form-row align-items-center">
 								<div class="col-sm-12 col-md-12 col-xl-12 col-lg-12">
 									<div class="col-sm-12 my-1">
 										
-										<!-- Mulai membuat input data pasien -->
+										<!-- Mulai membuat input data petugas -->
 										<div class="input-group">
 											<div class="input-group-prepend">
 												<div class="input-group-text" style="width: 150px">
-													Nama Lengkap
+													Nama Petugas 
 												</div>
 											</div>
-											<?= form_input('nama_lengkap', set_value('nama_lengkap'), ['class' => 'form-control', 'autocomplete' => 'off']); ?>
+											<?= form_input('nama_petugas', set_value('nama_petugas'), ['class' => 'form-control', 'autocomplete' => 'off']); ?>
 										</div>
-										<?= form_error('nama_lengkap', '<div class="text-danger mt-2">', '</div>') ?>
-															
-										<div class="input-group mt-2">
-											<div class="input-group-prepend">
-												<div class="input-group-text" style="width: 150px">
-													Jenis Kelamin
-												</div>
-											</div>
-											<?= form_dropdown('jenis_kelamin', [NULL => 'Pilih Jenis Kelamin', 'L' => 'Laki Laki', 'P' => 'Perempuan'], set_value('jenis_kelamin'), ['class' => 'form-control', 'autocomplete' => 'off']); ?>
-										</div>
+										<?= form_error('nama_petugas', '<div class="text-danger mt-2">', '</div>') ?>
 
-										<?= form_error('jenis_kelamin', '<div class="text-danger mt-2">', '</div>') ?>
-
-										<div class="input-group mt-2">
-											<div class="input-group-prepend">
-												<div class="input-group-text" style="width: 150px">
-													Golongan Darah
-												</div>
-											</div>
-											<?= form_dropdown('golongan_darah', [NULL => 'Pilih Golongan Darah', 'A' => 'A', 'B' => 'B', 'AB' => 'AB', 'O' => 'O'], set_value('golongan_darah'), ['class' => 'form-control', 'autocomplete' => 'off']); ?>
-										</div>	
-										
 										<div class="input-group mt-2">
 											<div class="input-group-prepend">
 												<div class="input-group-text" style="width: 150px">
@@ -66,31 +46,49 @@
 											</div>
 											<input type="date" name="tanggal_lahir" class="form-control" value="<?= set_value('tanggal_lahir') ?>">
 										</div>
+										<?= form_error('tanggal_lahir', '<div class="text-danger mt-2">', '</div>') ?>
 
-										<?= form_error('tanggal_lahir', '<div class="text-danger mt-2">', '</div>') ?>				
-										
 										<div class="input-group mt-2">
 											<div class="input-group-prepend">
 												<div class="input-group-text" style="width: 150px">
-													Alamat
+													Alamat 
 												</div>
 											</div>
 											<?= form_input('alamat', set_value('alamat'), ['class' => 'form-control', 'autocomplete' => 'off']); ?>
 										</div>
-
 										<?= form_error('alamat', '<div class="text-danger mt-2">', '</div>') ?>
+
+										<div class="input-group mt-2">
+											<div class="input-group-prepend">
+												<div class="input-group-text" style="width: 150px">
+													Jabatan
+												</div>
+											</div>
+											<?= form_dropdown('jabatan', [NULL => 'Pilih Jenis Jabatan', 'Dokter' => 'Dokter', 'Perawat' => 'Perawat'], set_value('jabatan'), ['class' => 'form-control', 'autocomplete' => 'off']); ?>
+										</div>
+										<?= form_error('jabatan', '<div class="text-danger mt-2">', '</div>') ?>
+
 										<div class="input-group mt-2">
 											<div class="input-group-prepend">
 												<div class="input-group-text" style="width: 150px">
 													Telepon
 												</div>
 											</div>
-											<?= form_input('nomor_hp', set_value('nomor_hp'), ['class' => 'form-control', 'autocomplete' => 'off']); ?>
+											<?= form_input('telepon', set_value('telepon'), ['class' => 'form-control', 'autocomplete' => 'off']); ?>
 										</div>
+										<?= form_error('telepon', '<div class="text-danger mt-2">', '</div>') ?>
 
-										<?= form_error('nomor_hp', '<div class="text-danger mt-2">', '</div>') ?>															
+										<div class="input-group mt-2">
+											<div class="input-group-prepend">
+												<div class="input-group-text" style="width: 150px">
+													Email
+												</div>
+											</div>
+											<?= form_input('email', set_value('email'), ['class' => 'form-control', 'autocomplete' => 'off']); ?>
+										</div>
+										<?= form_error('email', '<div class="text-danger mt-2">', '</div>') ?>
 
-										<button class="btn btn-block btn-primary mt-4" name="tambah"><i class="fas fa-save fa-sm"></i>Tambah</button>
+										<button class="btn btn-block btn-primary mt-4" name="tambah"><i class="fas fa-save fa-sm"></i> Tambah</button>
 									</div>
 								</div>
 							</div>
