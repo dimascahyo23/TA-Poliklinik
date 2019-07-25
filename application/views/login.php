@@ -23,8 +23,10 @@
               <div class="col-lg-12">
                 <div class="p-5">
 					<div class="text-center">
-					<h1 class="h4 text-gray-900 mb-4">Silahkan Login!</h1>
+					<h1 class="h3 text-gray-900 mb-2">POLI KLINIK</h1>
+					<h1 class="h3 text-gray-900 mb-4">Politeknik Negeri Pontianak</h1>
 					</div>
+					<hr>
 					<form class="user" method="POST">
 						<div class="form-group">
 						  <input type="text" autocomplete="off" class="form-control form-control-user" name="username" placeholder="Username" value="<?= set_value('username') ?>">
@@ -34,17 +36,15 @@
 						  <input type="password" class="form-control form-control-user" name="password" placeholder="Password">
 						  <?= form_error('password', '<div class="alert alert-danger mt-3">', '</div>') ?>
 						</div>
-						<div class="form-group">
+						<!-- <div class="form-group">
 							<select name="jenis_poli" id="" class="form-control form-control-lg mt-3" placeholder="Pilih Jenis Poli">
 								<option value="poli_umum">Poli Umum</option>
 								<option value="poli_gigi">Poli Gigi</option>
 							</select>
-						</div>
-						<button type="submit" class="btn btn-primary btn-user btn-block" name="login">Login</button>
+						</div> -->
+						<button type="submit" class="btn btn-primary btn-user btn-block" name="login">Masuk</button>
 						<hr>
-						<div class="text-center">Aplikasi Pelayanan Pasien Berbasis Web</div>
-						<!-- <div class="text-center mt-2">Username : admin123</div>
-						<div class="text-center">Password : admin123</div> -->
+						<div class="text-center">Aplikasi Pelayanan Pasien Berbasis Web</div>						
 					</form>
                 </div>
               </div>

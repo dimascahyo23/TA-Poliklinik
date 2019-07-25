@@ -1,11 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class petugas extends CI_Controller {
+class Petugas extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
-		$this->load->model('m_petugas.php');
+		$this->load->model('m_petugas');
 		if(!$this->session->has_userdata('auth')) redirect(base_url('auth/login'),'refresh');
 	}
 

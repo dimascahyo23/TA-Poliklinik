@@ -55,7 +55,7 @@
 										<td><?= $petugas->alamat ?></td>
 										<td><?= $petugas->jabatan ?></td>
 										<td><?= $petugas->telepon ?></td>
-										<td><?= $petugasetugas->email ?></td>	
+										<td><?= $petugas->email ?></td>	
 										<td><?= $petugas->username ?></td>
 										<td><?= $petugas->password ?></td>										
 																				

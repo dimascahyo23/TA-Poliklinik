@@ -11,7 +11,7 @@
 				<?php $this->load->view('_partials/top-nav'); ?>
 				<div class="container-fluid">
 					<div class="d-sm-flex align-items-center justify-content-between mb-4">
-			            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+			            <h1 class="h3 mb-0 text-gray-800">Dashboard Admin</h1>
 			         </div>
 		            <hr>
 
@@ -28,7 +28,7 @@
 			                  <div class="row no-gutters align-items-center">
 			                    <div class="col mr-2">
 			                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Pasien</div>
-			                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $total_siswa ?></div>
+			                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $total_pasien ?></div>
 			                    </div>
 			                    <div class="col-auto">
 			                      <i class="fas fa-users fa-2x text-gray-300"></i>
@@ -45,7 +45,7 @@
 			                  <div class="row no-gutters align-items-center">
 			                    <div class="col mr-2">
 			                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Pemeriksaan</div>
-			                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $total_siswa ?></div>
+			                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $total_pasien ?></div>
 			                    </div>
 			                    <div class="col-auto">
 			                      <i class="fas fa-users fa-2x text-gray-300"></i>
@@ -61,8 +61,8 @@
 			                <div class="card-body">
 			                  <div class="row no-gutters align-items-center">
 			                    <div class="col mr-2">
-			                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Total Rekam Medis</div>
-			                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $total_inventori ?></div>
+			                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Total Penyakit</div>
+			                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $total_penyakit ?></div>
 			                    </div>
 			                    <div class="col-auto">
 			                      <i class="fas fa-database fa-2x text-gray-300"></i>
@@ -78,8 +78,8 @@
 			                <div class="card-body">
 			                  <div class="row no-gutters align-items-center">
 			                    <div class="col mr-2">
-			                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Persediaan Obat</div>
-			                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $total_siswa ?></div>
+			                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Obat Tersedia</div>
+			                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $total_obat ?></div>
 			                    </div>
 			                    <div class="col-auto">
 			                      <i class="fas fa-users fa-2x text-gray-300"></i>
@@ -167,7 +167,7 @@
 								      </div>
 							        </div>
 									<?= form_input('total_siswa', form_error('total_siswa') ? set_value('total_siswa') : $master->total_siswa, ['class' => 'form-control', 'readonly' => 'readonly']); ?>
-							      </div>
+							      </div>					      
 							      <?= form_error('total_siswa', '<div class="alert alert-danger mt-3">', '</div>') ?>
 							    </div>
 							    <div class="col-sm-12 my-1">

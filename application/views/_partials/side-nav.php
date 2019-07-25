@@ -29,12 +29,25 @@
       <i class="fas fa-fw fa-users"></i>
       <span>Data Pasien</span></a>
   </li>
-
-  <li class="nav-item <?= $this->uri->segment(1) == 'obat' ? 'active' : '' ?>">
+  <li class="nav-item">
+      <a class="nav-link collapsed " href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+        <i class="fas fa-fw fa-medkit"></i>
+        <span>Data Obat</span>
+      </a>
+      <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+          <h6 class="collapse-header">Pilihan :</h6>
+          <a class="collapse-item" href="<?= base_url('obat') ?>">Stok Obat</a>
+          <a class="collapse-item" href="<?= base_url('obat/tambah') ?>">Obat Masuk</a>
+          <a class="collapse-item" href="<?= base_url('obat') ?>">Obat Keluar</a>
+        </div>
+      </div>
+    </li>
+<!--   <li class="nav-item <?= $this->uri->segment(1) == 'obat' ? 'active' : '' ?>">
     <a class="nav-link" href="<?= base_url('obat') ?>">
       <i class="fas fa-fw fa-medkit "></i>
       <span>Data Obat</span></a>
-  </li>
+  </li> -->
 
   <li class="nav-item <?= $this->uri->segment(1) == 'penyakit' ? 'active' : '' ?>">
     <a class="nav-link" href="<?= base_url('penyakit') ?>">

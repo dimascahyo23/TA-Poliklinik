@@ -93,7 +93,7 @@ class Pasien extends CI_Controller {
 			redirect(base_url('pasien'),'refresh');
 		}
 		if($this->m_pasien->delete($id)){
-			//$this->m_kelas->set_total_siswa($this->m_siswa->count());
+			$this->m_pasien->set_total_siswa($this->m_pasien->count());
 			$this->session->set_flashdata('success', 'Data pasien berhasil dihapus!');
 			redirect(base_url('pasien'),'refresh');
 		} else {
