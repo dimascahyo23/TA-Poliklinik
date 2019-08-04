@@ -11,7 +11,7 @@ class Pasien extends CI_Controller {
 
 	public function index(){
 		$data['title'] = 'Data Pasien';
-		$data['no'] = 1;
+		$data['no'] = 1;		
 		$data[ 'all_pasien'] = $this->m_pasien->get();
 		$this->load->view('pasien/index', $data);
 	}
@@ -23,7 +23,7 @@ class Pasien extends CI_Controller {
 		if(isset($_POST['tambah'])){
 			$this->form_validation->set_rules('nama_lengkap', 'Nama Pasien', 'required|min_length[3]|max_length[50]');
 			$this->form_validation->set_rules('alamat', 'Alamat', 'required|min_length[15]|max_length[100]');		
-			$this->form_validation->set_rules('jenis_kelamin', 'Jenis Kelamin', 'required|in_list[L,P]');
+			$this->form_validation->set_rules('jenis_kelamin', 'Jenis Kelamin', 'required|in_list[Laki-Laki,Perempuan]');
 			$this->form_validation->set_rules('tanggal_lahir', 'Tanggal Lahir', 'required');
 			$this->form_validation->set_rules('nomor_hp', 'Nomor Telepon', 'integer');
 
@@ -93,7 +93,7 @@ class Pasien extends CI_Controller {
 			redirect(base_url('pasien'),'refresh');
 		}
 		if($this->m_pasien->delete($id)){
-			$this->m_pasien->set_total_siswa($this->m_pasien->count());
+			$this->m_pasien->set_total_pasien($this->m_pasien->count());
 			$this->session->set_flashdata('success', 'Data pasien berhasil dihapus!');
 			redirect(base_url('pasien'),'refresh');
 		} else {

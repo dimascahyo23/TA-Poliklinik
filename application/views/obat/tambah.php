@@ -36,7 +36,6 @@
 											</div>
 											<?= form_input('nama_obat', set_value('nama_obat'), ['class' => 'form-control', 'autocomplete' => 'off']); ?>
 										</div>
-
 										<?= form_error('nama_obat', '<div class="text-danger mt-2">', '</div>') ?>
 
 										<div class="input-group mt-2">
@@ -45,32 +44,9 @@
 													Satuan
 												</div>
 											</div>
-											<?= form_input('satuan', set_value('satuan'), ['class' => 'form-control', 'autocomplete' => 'off']); ?>
+											<?= form_dropdown('satuan', [NULL => 'Pilih Satuan Obat', 'Tablet' => 'Tablet', 'Kotak' => 'Kotak', 'Keping' => 'Keping'], set_value('satuan'), ['class' => 'form-control', 'autocomplete' => 'off']); ?>
 										</div>
-
 										<?= form_error('satuan', '<div class="text-danger mt-2">', '</div>') ?>
-
-										<div class="input-group mt-2">
-											<div class="input-group-prepend">
-												<div class="input-group-text" style="width: 150px">
-													Jenis Obat
-												</div>
-											</div>
-											<?= form_dropdown('jenis_obat', [NULL => 'Pilih Jenis Obat', 'tablet' => 'Tablet', 'kotak' => 'Kotak', 'keping' => 'Keping'], set_value('jenis_obat'), ['class' => 'form-control', 'autocomplete' => 'off']); ?>
-										</div>
-
-										<?= form_error('jenis_obat', '<div class="text-danger mt-2">', '</div>') ?>									
-
-										<div class="input-group mt-2">
-											<div class="input-group-prepend">
-												<div class="input-group-text" style="width: 150px">
-													Stok
-												</div>
-											</div>
-										<?= form_input('stok', set_value('stok'), ['class' => 'form-control', 'autocomplete' => 'off']); ?>
-										</div>
-
-										<?= form_error('stok', '<div class="text-danger mt-2">', '</div>') ?>
 
 										<div class="input-group mt-2">
 											<div class="input-group-prepend">
@@ -80,8 +56,17 @@
 											</div>
 											<?= form_input('harga', set_value('harga'), ['class' => 'form-control', 'autocomplete' => 'off']); ?>
 										</div>
-
 										<?= form_error('harga', '<div class="text-danger mt-2">', '</div>') ?>
+
+										<div class="input-group mt-2">
+											<div class="input-group-prepend">
+												<div class="input-group-text" style="width: 150px">
+													Tanggal Expired
+												</div>
+											</div>
+											<input type="date" name="expired" class="form-control" value="<?= set_value('expired') ?>">
+										</div>
+										<?= form_error('expired', '<div class="text-danger mt-2">', '</div>') ?>
 
 										<div class="input-group mt-2">
 											<div class="input-group-prepend">

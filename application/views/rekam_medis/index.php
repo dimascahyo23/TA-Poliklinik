@@ -24,20 +24,23 @@
 					
 					<div class="card mb-4">
 		                <div class="card-header">
-		                  <i class="fas fa-table"></i>&nbsp;&nbsp;&nbsp;&nbsp;Daftar Pasien
+		                  <i class="fas fa-table"></i>&nbsp;&nbsp;&nbsp;&nbsp;Daftar Rekam Medis
 		                </div>
 		                <div class="card-body">
 		                  <div class="table-responsive">
 			                <table class="table table-hover table-bordered" id="dataTable" width="100%" cellspacing="0">
 			                  <thead>
 			                    <tr>
-			                      <th>No</th>			                      
-			                      <th>Nama Lengkap</th>			                      
-			                      <th>Jenis Kelamin</th>
-			                      <th>Gol. Darah</th>
-			                      <!-- <th>Tanggal Lahir</th>-->
-			                      <th>Jurusan</th>
-			                      <th>Kontak</th>
+			                      <th>No</th>
+			                      <th>No RM</th>
+			                      <th>ID Pasien</th>			                      
+			                      <th>Nama Pasien</th>			                      
+			                      <th>Tanggal Pemeriksaan</th>			                      
+			                      <th>Petugas</th>			                      
+			                      <th>Keluhan</th>			                      
+			                      <th>Diagnosa Penyakit</th>			                      
+			                      <th>Pengobatan</th>			                      
+			                      <th>keterangan</th>                      
 			                      <th style="width:90px;">Aksi</th>
 			                    </tr>
 			                  </thead>
@@ -45,19 +48,22 @@
 			                    
 			                  </tfoot>
 			                  <tbody>
-								<?php foreach ($all_pasien as $pasien): ?>
+								<?php foreach ($all_rekam_medis as $rekam_medis): ?>
 									<tr>
 										<td><?= $no++ ?></td>										
-										<td><?= $pasien->nama_lengkap ?></td>				
-										<td><?= $pasien->jenis_kelamin ?></td>
-										<td><?= $pasien->golongan_darah ?></td>
-										<!-- <td><?= date('d-m-Y', strtotime($pasien->tanggal_lahir)) ?></td> -->
-										<td><?= $pasien->jurusan ?></td>
-										<td><?= $pasien->nomor_hp ?></td>
+										<td><?= $rekam_medis->id_rm ?></td>				
+										<td><?= $rekam_medis->id_pasien ?></td>
+										<td><?= $rekam_medis->nama_lengkap ?></td>
+										<td><?= $rekam_medis->tanggal_pemeriksaan ?></td>
+										<td><?= $rekam_medis->nama_petugas ?></td>
+										<td><?= $rekam_medis->keluhan ?></td>
+										<td><?= $rekam_medis->nama_penyakit ?></td>
+										<td><?= $rekam_medis->nama_obat ?></td>
+										<td><?= $rekam_medis->keterangan ?></td>
 										<td colspan="2">
-											<a href="<?= base_url('pasien/detail/' . $pasien->id) ?>" class="btn btn-sm btn-primary"><i class="fas fa-sm fa-eye"></i></a>
-											<a href="<?= base_url('pasien/ubah/' . $pasien->id) ?>" class="btn btn-sm btn-success"><i class="fas fa-sm fa-pen"></i></a>
-											<a href="<?= base_url('pasien/hapus/' . $pasien->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin?')"><i class="fas fa-sm fa-trash"></i></a>
+											<a href="<?= base_url('rekam_medis/detail/' . $rekam_medis->id) ?>" class="btn btn-sm btn-primary"><i class="fas fa-sm fa-eye"></i></a>
+											<a href="<?= base_url('rekam_medis/ubah/' . $rekam_medis->id) ?>" class="btn btn-sm btn-success"><i class="fas fa-sm fa-pen"></i></a>
+											<a href="<?= base_url('rekam_medis/hapus/' . $rekam_medis->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin?')"><i class="fas fa-sm fa-trash"></i></a>
 										</td>									
 									</tr>	
 								<?php endforeach ?>	

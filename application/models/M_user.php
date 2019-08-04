@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class M_user extends CI_Model {
+class m_user extends CI_Model {
 
 	protected $table = 'users';
 
@@ -12,5 +12,5 @@ class M_user extends CI_Model {
 
 }
 
-/* End of file M_user.php */
-/* Location: ./application/models/M_user.php */
+/* End of file m_user.php */
+/* Location: ./application/models/m_user.php */

@@ -44,8 +44,8 @@
 												<div class="input-group-text" style="width: 150px">
 													Jenis Kelamin
 												</div>
-											</div>
-											<?= form_dropdown('jenis_kelamin', [NULL => 'Pilih Jenis Kelamin', 'L' => 'Laki Laki', 'P' => 'Perempuan'], form_error('jenis_kelamin') ? set_value('jenis_kelamin') : $pasien->jenis_kelamin, ['class' => 'form-control', 'autocomplete' => 'off']); ?>
+											</div>										
+											<?= form_dropdown('jenis_kelamin', [NULL => 'Pilih Jenis Kelamin', 'Laki-Laki' => 'Laki Laki', 'Perempuan' => 'Perempuan'], form_error('jenis_kelamin') ? set_value('jenis_kelamin') : $pasien->jenis_kelamin, ['class' => 'form-control', 'autocomplete' => 'off']); ?>
 										</div>
 
 										<?= form_error('jenis_kelamin', '<div class="text-danger mt-2">', '</div>') ?>
@@ -91,7 +91,7 @@
 
 										<?= form_error('nomor_hp', '<div class="text-danger mt-2">', '</div>') ?>						
 
-										<button class="btn btn-block btn-primary mt-4" name="ubah"><i class="fas fa-save fa-sm"></i> Ubah</button>
+										<button class="btn btn-block btn-primary mt-4" name="ubah"><i class="fas fa-save fa-sm"></i>Ubah</button>
 									</div>
 								</div>
 							</div>

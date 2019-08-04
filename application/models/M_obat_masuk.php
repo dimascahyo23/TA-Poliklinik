@@ -1,15 +1,22 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class m_obat extends CI_Model {
+class m_obat_masuk extends CI_Model {
 
-	protected $table = 'obat';
+	protected $table = 'obat_masuk';
 
 	public function get(){
 		$query = $this->db->get($this->db->dbprefix($this->table));
 		return $query->result();
 	}
 
+	public function jointable(){
+		$this->db->select('*');
+		$this->db->from('tb_obat');
+		$this->db->join('tb_obat_masuk','tb_obat_masuk.id_obat=tb_obat.id');
+		$query = $this->db->get();
+		return $query->result();
+	}
 	public function show($id){
 		$query = $this->db->get_where($this->db->dbprefix($this->table), ['id' => $id]);
 		return $query->row();
@@ -21,11 +28,8 @@ class m_obat extends CI_Model {
 
 	public function store(){
 		$data = [
-			'nama_obat' => $this->input->post('nama_obat'),
-			'satuan' => $this->input->post('satuan'),			
-			'harga' => $this->input->post('harga'),
-			'expired' => $this->input->post('expired'),			
-			'keterangan' => $this->input->post('keterangan'),
+			'id_obat' => $this->input->post('id_obat'),
+			'jumlah_masuk' => $this->input->post('jumlah_masuk'),			
 		];
 
 		$query = $this->db->insert($this->db->dbprefix($this->table), $data);
@@ -41,10 +45,8 @@ class m_obat extends CI_Model {
 	public function update($id){
 		$data = [
 			'nama_obat' => $this->input->post('nama_obat'),
-			'satuan' => $this->input->post('satuan'),			
-			'harga' => $this->input->post('harga'),
-			'expired' => $this->input->post('expired'),
-			'keterangan' => $this->input->post('keterangan'),
+			'jumlah_masuk' => $this->input->post('jumlah_masuk'),			
+			'tanggal' => $this->input->post('tanggal'),
 		];
 		$query = $this->db->set($data);
 		$query = $this->db->where('id', $id);
@@ -53,5 +55,5 @@ class m_obat extends CI_Model {
 	}
 
 }
-/* End of file m_obat.php */
-/* Location: ./application/models/m_obat.php */
+/* End of file m_obat_masuk.php */
+/* Location: ./application/models/m_obat_masuk.php */

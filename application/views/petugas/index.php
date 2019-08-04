@@ -38,9 +38,9 @@
 			                      <th>Jabatan</th>
 			                      <th>Telepon</th>
 			                      <th>Email</th>                 
-			                      <th>Username</th>                 
-			                      <th>Password</th>                 
-			                      <th>Aksi</th>
+			                      <!-- <th>Username</th>                  -->
+			                      <!-- <th>Password</th>                  -->
+			                      <th style="width:90px;">Aksi</th>	
 			                    </tr>
 			                  </thead>
 			                  <tfoot>
@@ -56,13 +56,13 @@
 										<td><?= $petugas->jabatan ?></td>
 										<td><?= $petugas->telepon ?></td>
 										<td><?= $petugas->email ?></td>	
-										<td><?= $petugas->username ?></td>
-										<td><?= $petugas->password ?></td>										
+										<!-- <td><?= $petugas->username ?></td> -->
+										<!-- <td><?= $petugas->password ?></td>										 -->
 																				
-										<td>
-											<a href="<?= base_url('petugas/ubah/' . $petugas->id) ?>" class="btn btn-sm btn-success"><i class="fas fa-sm fa-pen"></i></a>
-											<a href="<?= base_url('petugas/ubah/' . $petugas->id) ?>" class="btn btn-sm btn-success"><i class="fas fa-sm fa-pen"></i></a>
-											<a href="<?= base_url('petugas/hapus/' . $petugas->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin?')"><i class="fas fa-sm fa-trash"></i></a>
+										<td>											
+											<a href="<?= base_url('petugas/ubah/' . $petugas->id) ?>" data-toggle="tooltip" title="Detail" class="btn btn-sm btn-primary"><i class="fas fa-sm fa-eye"></i></a>
+											<a href="<?= base_url('petugas/ubah/' . $petugas->id) ?>" data-toggle="tooltip" title="Edit" class="btn btn-sm btn-success"><i class="fas fa-sm fa-pen"></i></a>
+											<a href="<?= base_url('petugas/hapus/' . $petugas->id) ?>" data-toggle="tooltip" title="Hapus" class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin?')"><i class="fas fa-sm fa-trash"></i></a>
 										</td>									
 									</tr>	
 								<?php endforeach ?>	

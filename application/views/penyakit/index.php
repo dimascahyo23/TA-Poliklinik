@@ -35,7 +35,7 @@
 			                      <th>Nama penyakit</th>
 			                      <th>Jenis Penyakit</th>
 			                      <th>Penanganan</th>
-			                      <th>Aksi</th>			                      
+			                      <th style="width:90px;">Aksi</th>		                      
 			                    </tr>
 			                  </thead>
 			                  <tfoot>

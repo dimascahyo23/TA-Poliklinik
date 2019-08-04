@@ -14,7 +14,7 @@
 		          <!-- Page Heading -->
 		          <div class="d-sm-flex align-items-center justify-content-between mb-4">
 		            <h1 class="h3 mb-0 texkt-gray-800"><?= $title ?></h1>
-		            <a href="<?= base_url('obat/tambah') ?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i>&nbsp;&nbsp;Tambah Data</a>
+		            <a href="<?= base_url('obat_masuk/tambah') ?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i>&nbsp;&nbsp;Tambah Data</a>
 		          </div>
 		          <hr>
 
@@ -24,7 +24,7 @@
 					
 					<div class="card mb-4">
 		                <div class="card-header">
-		                  <i class="fas fa-table"></i>&nbsp;&nbsp;&nbsp;&nbsp;Daftar Obat
+		                  <i class="fas fa-table"></i>&nbsp;&nbsp;&nbsp;&nbsp;Daftar Pembelian Obat 
 		                </div>
 		                <div class="card-body">
 		                  <div class="table-responsive">
@@ -32,12 +32,9 @@
 			                  <thead>
 			                    <tr>
 			                      <th>No</th>
-			                      <th>Nama Obat</th>
-			                      <th>Satuan</th>
-			                      <th>Harga</th>
-			                      <th>Tanggal Expired</th>
-			                      <th>Stok</th>                     
-			                      <th>Keterangan</th>
+			                      <th>Nama Obat</th>			                      
+			                      <th>Jumlah Beli</th>			                      
+			                      <th>Tanggal Beli</th>			                      
 			                      <th style="width:90px;">Aksi</th>			                     			                     
 			                    </tr>
 			                  </thead>
@@ -48,15 +45,10 @@
 								<?php foreach ($all_obat as $obat): ?>
 									<tr>
 										<td><?= $no++ ?></td>
-										<td><?= $obat->nama_obat ?></td>
-										<td><?= $obat->satuan ?></td>
-										<td><?= $obat->harga ?></td>
-										<td><?= $obat->expired ?></td>
-										<td><?= $obat->jumlah_stok ?></td>
-										<td><?= $obat->keterangan ?></td>									
-										<td>
-											<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Open modal</button> -->
-											<a href="<?= base_url('obat/ubah/' . $obat->id) ?>" data-toggle="modal" data-target="#myModal" title="Detail" class="btn btn-sm btn-primary"><i class="fas fa-sm fa-eye"></i></a>
+										<td><?= $obat->nama_obat ?></td>										
+										<td><?= $obat->jumlah_masuk ?></td>										
+										<td><?= $obat->tanggal ?></td>										
+										<td>				
 											<a href="<?= base_url('obat/ubah/' . $obat->id) ?>" data-toggle="tooltip" title="Edit" class="btn btn-sm btn-success"><i class="fas fa-sm fa-pen"></i></a>	
 											<a href="<?= base_url('obat/hapus/' . $obat->id) ?>" data-toggle="tooltip" title="Hapus" class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin?')"><i class="fas fa-sm fa-trash"></i></a>
 										</td>									

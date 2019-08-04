@@ -27,6 +27,9 @@ class m_pasien extends CI_Model {
 			'tanggal_lahir' => $this->input->post('tanggal_lahir'),	
 			'alamat' => $this->input->post('alamat'),
 			'nomor_hp' => $this->input->post('nomor_hp'),				
+			'status' => $this->input->post('status'),				
+			'jurusan' => $this->input->post('jurusan'),				
+			'prodi' => $this->input->post('prodi'),							
 		];
 
 		$query = $this->db->insert($this->db->dbprefix($this->table), $data);
@@ -47,6 +50,9 @@ class m_pasien extends CI_Model {
 			'tanggal_lahir' => $this->input->post('tanggal_lahir'),	
 			'alamat' => $this->input->post('alamat'),
 			'nomor_hp' => $this->input->post('nomor_hp'),			
+			'status' => $this->input->post('status'),				
+			'jurusan' => $this->input->post('jurusan'),				
+			'prodi' => $this->input->post('prodi'),				
 		];
 		$query = $this->db->set($data);
 		$query = $this->db->where('id', $id);

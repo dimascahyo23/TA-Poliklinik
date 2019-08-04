@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Obat extends CI_Controller {
+class Obat_Masuk extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();		
@@ -9,24 +9,19 @@ class Obat extends CI_Controller {
 	}
 
 	public function index($id = NULL){
-		$data['title'] = 'Data Obat';
+		$data['title'] = 'Data Pembelian Obat';
 		$data['no'] = 1;
-		$data['all_obat'] = $this->m_obat->get();
-		$data['detail_obat'] = $this->m_obat->show($id);
-		$this->load->view('obat/index', $data);
+		$data['all_obat'] = $this->m_obat_masuk->jointable();		
+		$this->load->view('obat_masuk/index', $data);
 	}
 
 	public function tambah(){
-		$data['title'] = 'Tambah Obat';
+		$data['title'] = 'Tambah Pembelian Obat';
 
 		// validasi form di inputan
 		if(isset($_POST['tambah'])){
-			$this->form_validation->set_rules('nama_obat', 'Nama obat', 'required|min_length[3]|max_length[100]');
-			$this->form_validation->set_rules('satuan', 'Satuan', 'required|min_length[3]|max_length[100]');
-			$this->form_validation->set_rules('harga', 'Harga', 'integer|required');
-			$this->form_validation->set_rules('expired', 'Tanggal Expired', 'required' );
-			$this->form_validation->set_rules('jumlah_stok', 'Jumlah Stok', 'integer|required');
-			$this->form_validation->set_rules('keterangan', 'Keterangan');
+			$this->form_validation->set_rules('id_obat', 'id obat', 'required|integer');			
+			$this->form_validation->set_rules('jumlah_masuk', 'Jumlah Stok', 'integer|required');
 
 			// aturan untun pesan yang akan tampil
 			// dengan kondisi sesuai pesan
@@ -39,33 +34,30 @@ class Obat extends CI_Controller {
 			$this->form_validation->set_message('exact_length', 'Kolom {field} harus sebanyak {param} karakter!');
 
 			if ($this->form_validation->run() == TRUE) {
-				if($this->m_obat->store()){					
+				if($this->m_obat_masuk->store()){					
 					$this->session->set_flashdata('success', 'Data obat berhasil ditambahkan!');
-					redirect(base_url('obat'),'refresh');
+					redirect(base_url('obat_masuk'),'refresh');
 				}
 			} else {
 				$this->session->set_flashdata('success', 'Data obat gagal ditambahkan!');
-				$this->load->view('obat/tambah', $data);
+				$this->load->view('obat_masuk/tambah', $data);
 			}
 		} else {
-			$this->load->view('obat/tambah', $data);
+			$this->load->view('obat_masuk/tambah', $data);
 
 		}
 	}
 
 	public function ubah($id = null){
 		if($id == NULL){
-			redirect(base_url('obat'),'refresh');
+			redirect(base_url('obat_masuk'),'refresh');
 		}
-		$data['title'] = 'Ubah Obat';
-		$data['obat'] = $this->m_obat->show($id);
+		$data['title'] = 'Ubah Pembelian Obat';
+		$data['obat_masuk'] = $this->m_obat->show($id);
 		if(isset($_POST['ubah'])){
-			$this->form_validation->set_rules('nama_obat', 'Nama obat', 'required|min_length[3]|max_length[100]');
-			$this->form_validation->set_rules('satuan', 'Satuan', 'required|min_length[3]|max_length[100]');
-			$this->form_validation->set_rules('harga', 'Harga', 'integer|required');
-			$this->form_validation->set_rules('expired', 'Tanggal Expired', 'required' );
-			$this->form_validation->set_rules('jumlah_stok', 'Jumlah Stok', 'integer|required');
-			$this->form_validation->set_rules('keterangan', 'Keterangan');			
+			$this->form_validation->set_rules('nama_obat', 'Nama obat', 'required|min_length[3]|max_length[50]');
+			$this->form_validation->set_rules('jumlah_masuk', 'Jumlah Beli', 'required');
+			$this->form_validation->set_rules('tanggal', 'Tanggal', 'required');			
 
 			$this->form_validation->set_message('is_unique', '{field} tidak boleh sama dengan data sebelumya!');
 			$this->form_validation->set_message('required', 'Kolom {field} harus diisi!');
@@ -89,25 +81,17 @@ class Obat extends CI_Controller {
 		}
 	}
 
-	public function detail($id = null){
-		if($id == NULL){
-			redirect(base_url('obat'),'refresh');
-		}
-		$data['title'] = 'Detail Obat';
-		$data['obat'] = $this->m_obat->show($id);
-	}
-
 	public function hapus($id = NULL){
 		if($id == NULL){
-			redirect(base_url('obat'),'refresh');
+			redirect(base_url('obat_masuk'),'refresh');
 		}
 		if($this->m_obat->delete($id)){
 			//$this->m_obat->set_total_obat($this->m_obat->count());
 			$this->session->set_flashdata('success', 'Data obat berhasil dihapus!');
-			redirect(base_url('obat'),'refresh');
+			redirect(base_url('obat_masuk'),'refresh');
 		} else {
 			$this->session->set_flashdata('error', 'Data obat gagal dihapus!');
-			redirect(base_url('obat'),'refresh');
+			redirect(base_url('obat_masuk'),'refresh');
 		}
 	}
 

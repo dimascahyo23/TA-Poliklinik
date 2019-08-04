@@ -46,6 +46,7 @@
 											</div>
 											<?= form_dropdown('jenis_kelamin', [NULL => 'Pilih Jenis Kelamin', 'L' => 'Laki Laki', 'P' => 'Perempuan'], set_value('jenis_kelamin'), ['class' => 'form-control', 'autocomplete' => 'off']); ?>
 										</div>
+
 										<?= form_error('jenis_kelamin', '<div class="text-danger mt-2">', '</div>') ?>
 
 										<div class="input-group mt-2">
@@ -56,7 +57,6 @@
 											</div>
 											<?= form_dropdown('golongan_darah', [NULL => 'Pilih Golongan Darah', 'A' => 'A', 'B' => 'B', 'AB' => 'AB', 'O' => 'O'], set_value('golongan_darah'), ['class' => 'form-control', 'autocomplete' => 'off']); ?>
 										</div>	
-										<?= form_error('golongan_darah', '<div class="text-danger mt-2">', '</div>') ?>	
 										
 										<div class="input-group mt-2">
 											<div class="input-group-prepend">
@@ -66,6 +66,7 @@
 											</div>
 											<input type="date" name="tanggal_lahir" class="form-control" value="<?= set_value('tanggal_lahir') ?>">
 										</div>
+
 										<?= form_error('tanggal_lahir', '<div class="text-danger mt-2">', '</div>') ?>				
 										
 										<div class="input-group mt-2">
@@ -86,37 +87,8 @@
 											</div>
 											<?= form_input('nomor_hp', set_value('nomor_hp'), ['class' => 'form-control', 'autocomplete' => 'off']); ?>
 										</div>
-										<?= form_error('nomor_hp', '<div class="text-danger mt-2">', '</div>') ?>
 
-										<div class="input-group mt-2">
-											<div class="input-group-prepend">
-												<div class="input-group-text" style="width: 150px">
-													Status
-												</div>
-											</div>
-											<?= form_dropdown('status', [NULL => 'Pilih Status sebagai', 'Dosen' => 'Dosen', 'Mahasiswa' => 'Mahasiswa', 'Pegawai' => 'Pegawai', 'Umum' => 'Umum', 'Lainnya' => 'Lainnya'], set_value('status'), ['class' => 'form-control', 'autocomplete' => 'off']); ?>
-										</div>	
-										<?= form_error('status', '<div class="text-danger mt-2">', '</div>') ?>	
-
-										<div class="input-group mt-2">
-											<div class="input-group-prepend">
-												<div class="input-group-text" style="width: 150px">
-													Jurusan
-												</div>
-											</div>
-											<?= form_input('jurusan', set_value('jurusan'), ['class' => 'form-control', 'autocomplete' => 'off']); ?>
-										</div>
-										<?= form_error('jurusan', '<div class="text-danger mt-2">', '</div>') ?>
-
-										<div class="input-group mt-2">
-											<div class="input-group-prepend">
-												<div class="input-group-text" style="width: 150px">
-													Prodi
-												</div>
-											</div>
-											<?= form_input('prodi', set_value('prodi'), ['class' => 'form-control', 'autocomplete' => 'off']); ?>
-										</div>
-										<?= form_error('prodi', '<div class="text-danger mt-2">', '</div>') ?>														
+										<?= form_error('nomor_hp', '<div class="text-danger mt-2">', '</div>') ?>															
 
 										<button class="btn btn-block btn-primary mt-4" name="tambah"><i class="fas fa-save fa-sm"></i>Tambah</button>
 									</div>

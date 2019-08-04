@@ -38,17 +38,11 @@
         <div class="bg-white py-2 collapse-inner rounded">
           <h6 class="collapse-header">Pilihan :</h6>
           <a class="collapse-item" href="<?= base_url('obat') ?>">Stok Obat</a>
-          <a class="collapse-item" href="<?= base_url('obat/tambah') ?>">Obat Masuk</a>
+          <a class="collapse-item" href="<?= base_url('obat_masuk') ?>">Obat Masuk</a>
           <a class="collapse-item" href="<?= base_url('obat') ?>">Obat Keluar</a>
         </div>
       </div>
     </li>
-<!--   <li class="nav-item <?= $this->uri->segment(1) == 'obat' ? 'active' : '' ?>">
-    <a class="nav-link" href="<?= base_url('obat') ?>">
-      <i class="fas fa-fw fa-medkit "></i>
-      <span>Data Obat</span></a>
-  </li> -->
-
   <li class="nav-item <?= $this->uri->segment(1) == 'penyakit' ? 'active' : '' ?>">
     <a class="nav-link" href="<?= base_url('penyakit') ?>">
       <i class="fas fa-fw  fa-stethoscope"></i>
@@ -59,8 +53,8 @@
       <i class="fas fa-fw fa-user-md"></i>
       <span>Data Petugas Medis</span></a>
   </li>
-  <li class="nav-item <?= $this->uri->segment(1) == 'inventori' ? 'active' : '' ?>">
-    <a class="nav-link" href="<?= base_url('inventori') ?>">
+  <li class="nav-item <?= $this->uri->segment(1) == 'rekam_medis' ? 'active' : '' ?>">
+    <a class="nav-link" href="<?= base_url('rekam_medis') ?>">
       <i class="fas fa-fw fa-paste"></i>
       <span>Data Rekam Medis</span></a>
   </li>
