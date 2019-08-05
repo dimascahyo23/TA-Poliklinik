@@ -3,7 +3,7 @@
     <div class="sidebar-brand-icon">
       <i class="fas fa-hospital"></i>
     </div>
-    <div class="sidebar-brand-text mx-3">Poliklinik POLNEP</div>
+    <div class="sidebar-brand-text mx-3">POLIKLINIK POLNEP</div>
   </a>
 
   <hr class="sidebar-divider">

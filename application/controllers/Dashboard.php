@@ -5,17 +5,19 @@ class Dashboard extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
-		if(!$this->session->has_userdata('auth')) redirect(base_url('auth/login'),'refresh');
+		if(!$this->session->has_userdata('username')) redirect(base_url('auth/login'),'refresh');
 	}
 
-	public function index(){
+	public function index(){	
 		$data['title'] = 'Dashboard';
+		$data['name'] = $this->db->get_where('tb_petugas_medis', ['username' => $this->session->userdata('username')])->row_array();			
 		$data['master'] = $this->m_kelas->get();
 		$data['total_pasien'] = $this->m_pasien->count();
 		$data['total_obat'] = $this->m_obat->count();
 		$data['total_penyakit'] = $this->m_penyakit->count();
 		$data['total_inventori'] = $this->m_inventori->count();
 		$this->load->view('dashboard/index', $data);
+
 	}
 
 	public function update(){
@@ -26,8 +28,6 @@ class Dashboard extends CI_Controller {
 		$data['master'] = $this->m_kelas->get();
 		$data['total_siswa'] = $this->m_siswa->count();
 		$data['total_inventori'] = $this->m_inventori->count();
-
-
 		$this->form_validation->set_rules('nama_kelas', 'Nama Kelas','required|min_length[4]|max_length[10]');
 		$this->form_validation->set_rules('wali_kelas', 'Nama Wali Kelas','required|min_length[3]|max_length[80]');
 		$this->form_validation->set_rules('total_siswa','Total Siswa', 'required|min_length[1]|max_length[40]|integer');

@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class m_user extends CI_Model {
 
-	protected $table = 'users';
+	protected $table = 'petugas_medis';
 
 	public function check_username(){
 		$query = $this->db->get_where($this->db->dbprefix($this->table), ['username' => $this->input->post('username')]);

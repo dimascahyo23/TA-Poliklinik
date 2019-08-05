@@ -29,7 +29,7 @@
 				</div>
 				<hr>
 				<?= $this->session->flashdata('message');  ?>
-				<form class="user" method="POST">
+				<form class="user" method="POST" action="<?= base_url('auth');  ?>">
 					<div class="form-group">
 					  <input type="text" autocomplete="off" class="form-control form-control-user" name="username" placeholder="Username" value="<?= set_value('username') ?>">
 					  <?= form_error('username', '<div class="alert alert-danger mt-3">', '</div>') ?>
@@ -39,10 +39,10 @@
 					  <?= form_error('password', '<div class="alert alert-danger mt-3">', '</div>') ?>
 					</div>								
 					
-					<div class="form-group">							
+					<!-- <div class="form-group">							
 						<?= form_dropdown('jenis_poli', [NULL => 'Pilih Jenis Poli', 'Poli Umum' => 'Poli Umum', 'Poli Gigi' => 'Poli Gigi'], set_value('jenis_poli'), ['class' => 'form-control form-control-lg mt-3 ', 'autocomplete' => 'off']);?>	
 					</div>	
-					<?= form_error('jenis_poli', '<div class="text-danger mt-2">', '</div>') ?>	
+					<?= form_error('jenis_poli', '<div class="text-danger mt-2">', '</div>') ?>	 -->
 					
 					<button type="submit" class="btn btn-primary btn-user btn-block" name="login">Login</button>
 					<hr>

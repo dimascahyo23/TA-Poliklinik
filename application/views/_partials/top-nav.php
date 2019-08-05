@@ -5,7 +5,7 @@
     <i class="fa fa-bars"></i>
   </button>
   
-  <h1 class="h3 mb-0 text-gray-1000 font-weight-bold">POLI UMUM</h1>
+  <h1 class="h3 mb-0 text-gray-1000 font-weight-bold"><?= $name['jenis_poli'] ?></h1>
 
   <!-- Topbar Navbar -->
   <ul class="navbar-nav ml-auto">
@@ -15,8 +15,8 @@
     <!-- Nav Item - User Information -->
      <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
-                <img class="img-profile rounded-circle" src="<?= base_url('assets/img/profile/default.png')  ?>">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $name['nama_petugas'] ?></span>
+                <img class="img-profile rounded-circle" src="<?= base_url('assets/img/profile/') . $name['image']; ?>">
               </a> 
      <!-- Dropdown - User Information -->
     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">

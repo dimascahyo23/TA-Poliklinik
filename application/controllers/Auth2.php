@@ -1,62 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Auth extends CI_Controller {
+class Auth2 extends CI_Controller {
 
 	public function index(){			
-		//$this->session->has_userdata('data') ? redirect(base_url('dashboard'), 'refresh') : redirect(base_url('auth/login'),'refresh');
-		$this->form_validation->set_rules('username', 'Username', 'required');
-		$this->form_validation->set_rules('password', 'Password', 'required');
-		$this->form_validation->set_message('required', '{field} tidak boleh kosong!');
-		
-		if ($this->form_validation->run() == false) {
-			$this->load->view('login');
-		} else {
-			$this->_login();
-		}
-	}
-
-	private function _login(){
-		//$this->session->has_userdata('data') ? redirect(base_url('dashboard'), 'refresh') : NULL;
-		$username = $this->input->post('username');
-		$password = $this->input->post('password');
-
-		$user = $this->db->get_where('tb_petugas_medis', ['username' => $username])->row_array();
-
-		if ($user) {	
-			if ($user['jenis_poli'] == 'POLI UMUM') {
-				if (password_verify($password, $user['password'])) {	
-					$data = [
-						'username' => $user['username']
-					];
-					$this->session->set_userdata($data);								
-					$this->session->set_flashdata('success', 'Anda berhasil login!');
-					redirect(base_url('dashboard'),'refresh');
-				} else {
-					$this->load->view('login');
-					$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password salah</div>');
-					
-				}
-			} else if ($user['jenis_poli'] == 'POLI GIGI') {
-				if (password_verify($password, $user['password'])) {
-					$data = [
-						'username' => $user['username']
-					];
-					$this->session->set_userdata($data);
-					$this->session->set_flashdata('success', 'Anda berhasil login!');
-					redirect(base_url('dashboard'),'refresh');
-				} else {
-					$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password salah</div>');
-					$this->load->view('login');
-				}
-			} else {
-				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Gagal login!</div>');
-				$this->load->view('login');
-			}
-		} else {
-			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Username belum terdaftar</div>');
-			$this->load->view('login');
-		}
+		$this->session->has_userdata('auth') ? redirect(base_url('dashboard'), 'refresh') : redirect(base_url('auth/login'),'refresh');
+		// $data['name'] = $this->db->get_where('tb_petugas_medis', ['username' => $this->session->has_userdata('username')])->row_array();		
 	}
 
 	public function login(){
