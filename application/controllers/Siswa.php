@@ -5,7 +5,7 @@ class Siswa extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
-		if(!$this->session->has_userdata('auth')) redirect(base_url('auth/login'),'refresh');
+		if(!$this->session->has_userdata('username')) redirect(base_url('auth/login'),'refresh');
 	}
 
 	public function index(){

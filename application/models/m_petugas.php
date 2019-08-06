@@ -5,14 +5,13 @@ class m_petugas extends CI_Model {
 
 	protected $table = 'petugas_medis';
 
-
-	public function jointable(){
-		$this->db->select('*');
-		$this->db->from('tb_petugas_medis');
-		$this->db->join('tb_users','tb_users.id_petugas_medis=tb_petugas_medis.id');
-		$query = $this->db->get();
-		return $query->result();
-	}
+	// public function jointable(){
+	// 	$this->db->select('*');
+	// 	$this->db->from('tb_petugas_medis');
+	// 	$this->db->join('tb_users','tb_users.id_petugas_medis=tb_petugas_medis.id');
+	// 	$query = $this->db->get();
+	// 	return $query->result();
+	// }
 
 	public function get(){
 		$query = $this->db->get($this->db->dbprefix($this->table));
@@ -33,9 +32,13 @@ class m_petugas extends CI_Model {
 			'nama_petugas' => $this->input->post('nama_petugas'),
 			'tanggal_lahir' => $this->input->post('tanggal_lahir'),
 			'alamat' => $this->input->post('alamat'),
-			'jabatan' => $this->input->post('jabatan'),
+			'role' => $this->input->post('role'),
 			'telepon' => $this->input->post('telepon'),
 			'email' => $this->input->post('email'),
+			'image' => 'default.png',
+			'username' => $this->input->post('username'),
+			'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
+			'jenis_poli' => $this->input->post('jenis_poli'),
 		];
 
 		$query = $this->db->insert($this->db->dbprefix($this->table), $data);
@@ -53,9 +56,12 @@ class m_petugas extends CI_Model {
 			'nama_petugas' => $this->input->post('nama_petugas'),
 			'tanggal_lahir' => $this->input->post('tanggal_lahir'),
 			'alamat' => $this->input->post('alamat'),
-			'jabatan' => $this->input->post('jabatan'),
+			'role' => $this->input->post('role'),
 			'telepon' => $this->input->post('telepon'),
-			'email' => $this->input->post('email'),	
+			'email' => $this->input->post('email'),
+			'username' => $this->input->post('username'),
+			'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
+			'jenis_poli' => $this->input->post('jenis_poli'),
 		];
 		$query = $this->db->set($data);
 		$query = $this->db->where('id', $id);

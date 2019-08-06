@@ -5,7 +5,7 @@ class Auth2 extends CI_Controller {
 
 	public function index(){			
 		$this->session->has_userdata('auth') ? redirect(base_url('dashboard'), 'refresh') : redirect(base_url('auth/login'),'refresh');
-		// $data['name'] = $this->db->get_where('tb_petugas_medis', ['username' => $this->session->has_userdata('username')])->row_array();		
+			
 	}
 
 	public function login(){

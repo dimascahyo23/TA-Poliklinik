@@ -64,9 +64,9 @@
 													Jabatan
 												</div>
 											</div>
-											<?= form_dropdown('jabatan', [NULL => 'Pilih Jenis Jabatan', 'Dokter' => 'Dokter', 'Perawat' => 'Perawat'], set_value('jabatan'), ['class' => 'form-control', 'autocomplete' => 'off']); ?>
+											<?= form_dropdown('role', [NULL => 'Pilih Jabatan Petugas', 'Admin' => 'Admin', 'Dokter' => 'Dokter', 'Perawat' => 'Perawat'], set_value('role'), ['class' => 'form-control', 'autocomplete' => 'off']); ?>
 										</div>
-										<?= form_error('jabatan', '<div class="text-danger mt-2">', '</div>') ?>
+										<?= form_error('role', '<div class="text-danger mt-2">', '</div>') ?>
 
 										<div class="input-group mt-2">
 											<div class="input-group-prepend">
@@ -87,6 +87,36 @@
 											<?= form_input('email', set_value('email'), ['class' => 'form-control', 'autocomplete' => 'off']); ?>
 										</div>
 										<?= form_error('email', '<div class="text-danger mt-2">', '</div>') ?>
+
+										<div class="input-group mt-2">
+											<div class="input-group-prepend">
+												<div class="input-group-text" style="width: 150px">
+													Username
+												</div>
+											</div>
+											<?= form_input('username', set_value('username'), ['class' => 'form-control', 'autocomplete' => 'off']); ?>
+										</div>
+										<?= form_error('username', '<div class="text-danger mt-2">', '</div>') ?>
+
+										<div class="input-group mt-2">
+											<div class="input-group-prepend">
+												<div class="input-group-text" style="width: 150px">
+													Password
+												</div>
+											</div>
+											<?= form_input('password', set_value('password'), ['class' => 'form-control', 'autocomplete' => 'off']); ?>
+										</div>
+										<?= form_error('password', '<div class="text-danger mt-2">', '</div>') ?>
+
+										<div class="input-group mt-2">
+											<div class="input-group-prepend">
+												<div class="input-group-text" style="width: 150px">
+													Jenis Poli
+												</div>
+											</div>
+										<?= form_dropdown('jenis_poli', [NULL => 'Pilih Jenis Poli', 'POLI UMUM' => 'POLI UMUM', 'POLI GIGI' => 'POLI GIGI'], set_value('jenis_poli'), ['class' => 'form-control', 'autocomplete' => 'off']); ?>
+										</div>
+										<?= form_error('jenis_poli', '<div class="text-danger mt-2">', '</div>') ?>
 
 										<button class="btn btn-block btn-primary mt-4" name="tambah"><i class="fas fa-save fa-sm"></i> Tambah</button>
 									</div>

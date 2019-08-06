@@ -5,11 +5,12 @@ class Obat extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();		
-		if(!$this->session->has_userdata('auth')) redirect(base_url('auth/login'),'refresh');
+		if(!$this->session->has_userdata('username')) redirect(base_url('auth/login'),'refresh');
 	}
 
 	public function index($id = NULL){
 		$data['title'] = 'Data Obat';
+		$data['name'] = $this->db->get_where('tb_petugas_medis', ['username' => $this->session->userdata('username')])->row_array();
 		$data['no'] = 1;
 		$data['all_obat'] = $this->m_obat->get();
 		$data['detail_obat'] = $this->m_obat->show($id);
@@ -18,6 +19,7 @@ class Obat extends CI_Controller {
 
 	public function tambah(){
 		$data['title'] = 'Tambah Obat';
+		$data['name'] = $this->db->get_where('tb_petugas_medis', ['username' => $this->session->userdata('username')])->row_array();
 
 		// validasi form di inputan
 		if(isset($_POST['tambah'])){
@@ -58,6 +60,7 @@ class Obat extends CI_Controller {
 			redirect(base_url('obat'),'refresh');
 		}
 		$data['title'] = 'Ubah Obat';
+		$data['name'] = $this->db->get_where('tb_petugas_medis', ['username' => $this->session->userdata('username')])->row_array();
 		$data['obat'] = $this->m_obat->show($id);
 		if(isset($_POST['ubah'])){
 			$this->form_validation->set_rules('nama_obat', 'Nama obat', 'required|min_length[3]|max_length[100]');
@@ -94,6 +97,7 @@ class Obat extends CI_Controller {
 			redirect(base_url('obat'),'refresh');
 		}
 		$data['title'] = 'Detail Obat';
+		$data['name'] = $this->db->get_where('tb_petugas_medis', ['username' => $this->session->userdata('username')])->row_array();
 		$data['obat'] = $this->m_obat->show($id);
 	}
 

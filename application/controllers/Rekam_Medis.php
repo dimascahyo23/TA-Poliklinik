@@ -6,11 +6,12 @@ class Rekam_Medis extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('m_rekam_medis');
-		if(!$this->session->has_userdata('auth')) redirect(base_url('auth/login'),'refresh');
+		if(!$this->session->has_userdata('username')) redirect(base_url('auth/login'),'refresh');
 	}
 
 	public function index(){
 		$data['title'] = 'Data Rekam Medis';
+		$data['name'] = $this->db->get_where('tb_petugas_medis', ['username' => $this->session->userdata('username')])->row_array();
 		$data['no'] = 1;
 		$data[ 'all_rekam_medis'] = $this->m_rekam_medis->jointable1();
 		$this->load->view('rekam_medis/index', $data);
@@ -18,6 +19,7 @@ class Rekam_Medis extends CI_Controller {
 
 	public function tambah(){
 		$data['title'] = 'Tambah Rekam Medis';
+		$data['name'] = $this->db->get_where('tb_petugas_medis', ['username' => $this->session->userdata('username')])->row_array();
 
 		// validasi form di inputan
 		if(isset($_POST['tambah'])){

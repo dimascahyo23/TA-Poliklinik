@@ -16,7 +16,7 @@ class m_rekam_medis extends CI_Model {
 	public function jointable1(){
 		$this->db->select('*');
 		$this->db->from('tb_pemeriksaan');
-		$this->db->join('tb_rekam_medis','tb_rekam_medis.id_rm=tb_pemeriksaan.id_rekam_medis');
+		$this->db->join('tb_rekam_medis','tb_rekam_medis.id=tb_pemeriksaan.id_rekam_medis');
 		$this->db->join('tb_pasien','tb_pasien.id=tb_rekam_medis.id_pasien');
 		$this->db->join('tb_petugas_medis','tb_petugas_medis.id=tb_pemeriksaan.id_petugas_medis');
 		$this->db->join('tb_penyakit','tb_penyakit.id=tb_pemeriksaan.id_penyakit');

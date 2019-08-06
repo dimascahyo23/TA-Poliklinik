@@ -5,12 +5,12 @@ class Penyakit extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
-		$this->load->model('m_penyakit');
-		if(!$this->session->has_userdata('auth')) redirect(base_url('auth/login'),'refresh');
+		if(!$this->session->has_userdata('username')) redirect(base_url('auth/login'),'refresh');
 	}
 
 	public function index(){
 		$data['title'] = 'Data Penyakit';
+		$data['name'] = $this->db->get_where('tb_petugas_medis', ['username' => $this->session->userdata('username')])->row_array();
 		$data['no'] = 1;
 		$data[ 'all_penyakit'] = $this->m_penyakit->get();
 		$this->load->view('penyakit/index', $data);
@@ -18,6 +18,7 @@ class Penyakit extends CI_Controller {
 
 	public function tambah(){
 		$data['title'] = 'Tambah Penyakit';
+		$data['name'] = $this->db->get_where('tb_petugas_medis', ['username' => $this->session->userdata('username')])->row_array();
 
 		// validasi form di inputan
 		if(isset($_POST['tambah'])){
@@ -56,6 +57,7 @@ class Penyakit extends CI_Controller {
 			redirect(base_url('penyakit'),'refresh');
 		}
 		$data['title'] = 'Ubah Penyakit';
+		$data['name'] = $this->db->get_where('tb_petugas_medis', ['username' => $this->session->userdata('username')])->row_array();
 		$data['penyakit'] = $this->m_penyakit->show($id);
 		if(isset($_POST['ubah'])){
 			$this->form_validation->set_rules('nama_penyakit', 'Nama penyakit', 'required|min_length[3]|max_length[100]');				

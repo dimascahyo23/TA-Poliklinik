@@ -22,7 +22,6 @@
   <div class="sidebar-heading">
     User
   </div>
-  
 
   <li class="nav-item <?= $this->uri->segment(1) == 'pasien' ? 'active' : '' ?>">
     <a class="nav-link" href="<?= base_url('pasien') ?>">

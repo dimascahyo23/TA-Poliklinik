@@ -51,7 +51,7 @@
 								<?php foreach ($all_rekam_medis as $rekam_medis): ?>
 									<tr>
 										<td><?= $no++ ?></td>										
-										<td><?= $rekam_medis->id_rm ?></td>				
+										<td><?= $rekam_medis->id ?></td>				
 										<td><?= $rekam_medis->id_pasien ?></td>
 										<td><?= $rekam_medis->nama_lengkap ?></td>
 										<td><?= $rekam_medis->tanggal_pemeriksaan ?></td>

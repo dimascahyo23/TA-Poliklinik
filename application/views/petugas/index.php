@@ -13,7 +13,7 @@
 
 		          <!-- Page Heading -->
 		          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-		            <h1 class="h3 mb-0 texkt-gray-800"><?= $title ?></h1>
+		            <h1 class="h3 mb-0 text-gray-800 sm"><?= $title ?></h1>
 		            <a href="<?= base_url('petugas/tambah') ?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i>&nbsp;&nbsp;Tambah Data</a>
 		          </div>
 		          <hr>
@@ -32,14 +32,11 @@
 			                  <thead>
 			                    <tr>
 			                      <th>No</th>
-			                      <th>Nama Petugas</th>
-			                      <th>Tanggal Lahir</th>
-			                      <th>Alamat</th>
+			                      <th>Nama Petugas</th>				                     
 			                      <th>Jabatan</th>
-			                      <th>Telepon</th>
-			                      <th>Email</th>                 
-			                      <!-- <th>Username</th>                  -->
-			                      <!-- <th>Password</th>                  -->
+			                      <th>Telepon</th>                
+			                      <th>Jenis Poli</th>   
+			                      <th>Alamat</th>              			                      
 			                      <th style="width:90px;">Aksi</th>	
 			                    </tr>
 			                  </thead>
@@ -50,17 +47,13 @@
 								<?php foreach ($all_petugas as $petugas): ?>
 									<tr>
 										<td><?= $no++ ?></td>
-										<td><?= $petugas->nama_petugas ?></td>
-										<td><?= $petugas->tanggal_lahir ?></td>
-										<td><?= $petugas->alamat ?></td>
-										<td><?= $petugas->jabatan ?></td>
+										<td><?= $petugas->nama_petugas ?></td>			
+										<td><?= $petugas->role ?></td>
 										<td><?= $petugas->telepon ?></td>
-										<td><?= $petugas->email ?></td>	
-										<!-- <td><?= $petugas->username ?></td> -->
-										<!-- <td><?= $petugas->password ?></td>										 -->
-																				
+										<td><?= $petugas->jenis_poli ?></td>
+										<td><?= $petugas->alamat ?></td>
 										<td>											
-											<a href="<?= base_url('petugas/ubah/' . $petugas->id) ?>" data-toggle="tooltip" title="Detail" class="btn btn-sm btn-primary"><i class="fas fa-sm fa-eye"></i></a>
+											<a href="<?= base_url('petugas/detail/' . $petugas->id) ?>" data-toggle="tooltip" title="Detail" class="btn btn-sm btn-primary"><i class="fas fa-sm fa-eye"></i></a>
 											<a href="<?= base_url('petugas/ubah/' . $petugas->id) ?>" data-toggle="tooltip" title="Edit" class="btn btn-sm btn-success"><i class="fas fa-sm fa-pen"></i></a>
 											<a href="<?= base_url('petugas/hapus/' . $petugas->id) ?>" data-toggle="tooltip" title="Hapus" class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin?')"><i class="fas fa-sm fa-trash"></i></a>
 										</td>									
